@@ -9,7 +9,8 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        This is part from Wei Long
+        This is from Kiwi
+        I don't want from Wei Long
     </div>  
     </form>
 </body>
