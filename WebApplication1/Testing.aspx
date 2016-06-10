@@ -15,6 +15,8 @@
         I don't want from Wei Long
         This is from fizo
         i am handsome
+
+        Trying to test git function commit all and push
     </div>  
     </form>
 </body>
