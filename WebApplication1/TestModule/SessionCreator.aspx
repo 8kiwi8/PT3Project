@@ -11,6 +11,9 @@
     <form id="form1" runat="server">
     <div>
         <h3>Current login session: <%Response.Write(Session["p_name"]); %></h3>
+
+        My Coding....
+
         <br />
         
         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Set Session as Admin" />
