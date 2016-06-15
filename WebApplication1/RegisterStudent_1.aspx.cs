@@ -14,7 +14,7 @@ namespace WebApplication1
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            conn.Open();
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -26,23 +26,34 @@ namespace WebApplication1
                 cmd.Parameters.AddWithValue("@u_name", txtU_name.Text);
                 cmd.Parameters.AddWithValue("@u_password", txtU_passsword.Text);
                 cmd.Parameters.AddWithValue("@u_level", txtU_level.Text);
-                
-                cmd.ExecuteNonQuery();
 
-                Response.Redirect("homepage.aspx");
-            }
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+
+                conn.Open();
+                int i = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                if (dt.Rows.Count > 0)
+                {
+                    Session["id"] = txtU_name.Text;
+                    Response.Redirect("homepage.aspx");
+                    Session.RemoveAll();
+                }
+                else
+                {
+                    Label1.Text = "You're username and word is incorrect";
+                    Label1.ForeColor = System.Drawing.Color.Red;
+                }
+
+                }
             catch (ArgumentException ex)
             {
-                Label1.Text = ex.ToString();
+                Label1.Text = "You're username and word is incorrect";
+                //Label1.ForeColor = System.Drawing.Color.Red;
             }
 
-            conn.Close();
-
-            Label1.Visible = true;
-            //Label1.Text = "Your data Stored Succesfully";
-            txtU_name.Text = "";
-            txtU_passsword.Text = "";
-            txtU_level.Text = "";
 
         }
 

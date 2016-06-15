@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisterStudent_1.aspx.cs" Inherits="WebApplication1.Create_Profile_1" %>
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,6 +10,9 @@
     <style type="text/css">
         .auto-style1 {
             width: 100%;
+        }
+        .auto-style2 {
+            height: 26px;
         }
     </style>
 </head>
@@ -20,17 +25,19 @@
                 <td>New username</td>
                 <td>
                     <asp:TextBox ID="txtU_name" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtU_name" ErrorMessage="Please fill In Username" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td>New Password</td>
                 <td>
                     <asp:TextBox ID="txtU_passsword" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtU_passsword" ErrorMessage="Please Fill In Password"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
-                <td>Confirm Password </td>
-                <td>
+                <td class="auto-style2">Confirm Password </td>
+                <td class="auto-style2">
                     <asp:TextBox ID="txtConfirm" runat="server"></asp:TextBox>
                 </td>
             </tr>
@@ -42,6 +49,7 @@
                         <asp:ListItem Text="Lecturer" Value="Lecturer"></asp:ListItem>
                         <asp:ListItem Text="Student" Value="Student"></asp:ListItem>
                     </asp:RadioButtonList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtU_level" ErrorMessage="Please pick the user type"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
