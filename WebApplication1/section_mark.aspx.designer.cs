@@ -10,7 +10,7 @@
 namespace WebApplication1 {
     
     
-    public partial class WebForm1 {
+    public partial class section_mark {
         
         /// <summary>
         /// SqlDataSource1 control.
