@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1 {
+namespace WebApplication1.AdminModule {
     
     
-    public partial class WebForm1 {
+    public partial class Course {
         
         /// <summary>
-        /// SqlDataSource1 control.
+        /// LinqDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.LinqDataSource LinqDataSource1;
         
         /// <summary>
         /// GridView1 control.
@@ -29,5 +29,14 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// TextBoxEdit1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxEdit1;
     }
 }

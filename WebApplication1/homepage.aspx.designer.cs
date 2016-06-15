@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1.TestModule
+namespace WebApplication1
 {
 
 
-    public partial class WebForm1
+    public partial class homepage
     {
 
         /// <summary>
