@@ -29,6 +29,7 @@ namespace WebApplication1
             // insert values into database
             string query = "insert into section_mark (s_id, sm_item, sm_total, sm_percentage) values ('"+ txtid.Text + "','" + txtitem.Text + "','" + txttotal.Text + "','" + txtpercentage.Text + "')";
             SqlCommand cmd = new SqlCommand(query, conn);
+            //Console.Write(query);
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
