@@ -48,7 +48,7 @@ namespace WebApplication1.TestModule
                 cmd.Parameters.AddWithValue("@p_name", txtPname.Text);
                 cmd.Parameters.AddWithValue("@p_phone_no", txtPPhoneNo.Text);
                 cmd.Parameters.AddWithValue("@p_email", txtPEmailAddress.Text);
-                cmd.ExecuteNonQuery();
+                cmd.ExecuteScalar();
             }
             catch(ArgumentException ex)
             {
@@ -65,6 +65,11 @@ namespace WebApplication1.TestModule
                txtConfirm.Text = "";
                txtPPhoneNo.Text = "";
                txtPEmailAddress.Text = "";
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
 
         }
     }
