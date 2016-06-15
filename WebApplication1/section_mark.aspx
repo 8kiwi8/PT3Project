@@ -27,7 +27,7 @@
             <asp:Parameter Name="original_sm_percentage" Type="Double" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT DISTINCT * FROM [section]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [section]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [section_mark]"></asp:SqlDataSource>
     <br />
     <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="sm_id"  ShowFooter="True">
@@ -40,7 +40,7 @@
                 <FooterTemplate>
                     <asp:TextBox ID="txts_id" runat="server"></asp:TextBox>
                     <br />
-                    <asp:RangeValidator ID="RangeValidator_s_id" runat="server" ControlToValidate="txts_id" Display="Dynamic" ErrorMessage="Invalid section! Enter available section only." MaximumValue="5" MinimumValue="1" Type="Integer"></asp:RangeValidator>
+                    <asp:RangeValidator ID="RangeValidator_s_id" runat="server" ControlToValidate="txts_id" ErrorMessage="Invalid section! Enter available section only." MaximumValue="5" MinimumValue="1" Type="Integer"></asp:RangeValidator>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("s_id") %>'></asp:Label>
