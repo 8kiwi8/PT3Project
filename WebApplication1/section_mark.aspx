@@ -66,6 +66,8 @@
                 </EditItemTemplate>
                 <FooterTemplate>
                     <asp:TextBox ID="txtsm_total" runat="server"></asp:TextBox>
+                    <br />
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtsm_total" Display="Dynamic" ErrorMessage="Total Mark should be 1-100" MaximumValue="100" MinimumValue="1" Type="Integer"></asp:RangeValidator>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("sm_total") %>'></asp:Label>
@@ -79,6 +81,8 @@
                 </EditItemTemplate>
                 <FooterTemplate>
                     <asp:TextBox ID="txtsm_percentage" runat="server"></asp:TextBox>
+                    <br />
+                    <asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="txtsm_percentage" Display="Dynamic" ErrorMessage="Percentage should be 0.01-1.00" MaximumValue="1.0" MinimumValue="0.01" Type="Double"></asp:RangeValidator>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("sm_percentage") %>'></asp:Label>
