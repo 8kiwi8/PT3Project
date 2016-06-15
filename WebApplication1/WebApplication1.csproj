@@ -192,6 +192,7 @@
     <Content Include="Account\Web.config" />
     <Content Include="homepage.aspx" />
     <Content Include="Log In.aspx" />
+    <Content Include="section_mark.aspx" />
     <Content Include="TestModule\SessionCreator.aspx" />
     <Content Include="TestModule\Test Register.aspx" />
     <Content Include="WebForm1.aspx" />
