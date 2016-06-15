@@ -27,23 +27,29 @@
             <asp:Parameter Name="original_sm_percentage" Type="Double" />
         </UpdateParameters>
     </asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [section]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [section_mark]"></asp:SqlDataSource>
     <br />
     <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="sm_id"  ShowFooter="True">
         <Columns>
-            <asp:TemplateField HeaderText="s_id" SortExpression="s_id">
+            <asp:TemplateField HeaderText="Section ID" SortExpression="s_id">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("s_id") %>'></asp:TextBox>
+                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="s_id" DataValueField="s_id" SelectedValue='<%# Bind("s_id") %>'>
+                    </asp:DropDownList>
                 </EditItemTemplate>
                 <FooterTemplate>
                     <asp:TextBox ID="txts_id" runat="server"></asp:TextBox>
+                    <br />
+                    <asp:RangeValidator ID="RangeValidator_s_id" runat="server" ControlToValidate="txts_id" ErrorMessage="Invalid section! Enter available section only." MaximumValue="5" MinimumValue="1" Type="Integer"></asp:RangeValidator>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("s_id") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="sm_item" SortExpression="sm_item">
+            <asp:TemplateField HeaderText="Section Mark Item" SortExpression="sm_item">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("sm_item") %>'></asp:TextBox>
+                    <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource3" DataTextField="sm_item" DataValueField="sm_item" SelectedValue='<%# Bind("sm_item") %>'>
+                    </asp:DropDownList>
                 </EditItemTemplate>
                 <FooterTemplate>
                     <asp:TextBox ID="txtsm_item" runat="server"></asp:TextBox>
@@ -52,9 +58,11 @@
                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("sm_item") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="sm_total" SortExpression="sm_total">
+            <asp:TemplateField HeaderText="Section Mark Total" SortExpression="sm_total">
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("sm_total") %>'></asp:TextBox>
+                    <br />
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox3" Display="Dynamic" ErrorMessage="Total Mark should be 1-100" MaximumValue="100" MinimumValue="1" Type="Integer"></asp:RangeValidator>
                 </EditItemTemplate>
                 <FooterTemplate>
                     <asp:TextBox ID="txtsm_total" runat="server"></asp:TextBox>
@@ -63,9 +71,11 @@
                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("sm_total") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="sm_percentage" SortExpression="sm_percentage">
+            <asp:TemplateField HeaderText="Section Mark Percentage" SortExpression="sm_percentage">
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("sm_percentage") %>'></asp:TextBox>
+                    <br />
+                    <asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="TextBox4" Display="Dynamic" ErrorMessage="Percentage should be 0.01-1.00" MaximumValue="1.0" MinimumValue="0.01" Type="Double"></asp:RangeValidator>
                 </EditItemTemplate>
                 <FooterTemplate>
                     <asp:TextBox ID="txtsm_percentage" runat="server"></asp:TextBox>
@@ -74,7 +84,7 @@
                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("sm_percentage") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField ShowHeader="False">
+            <asp:TemplateField ShowHeader="False" HeaderText="Actions">
                 <EditItemTemplate>
                     <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="Update"></asp:LinkButton>
                     &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
