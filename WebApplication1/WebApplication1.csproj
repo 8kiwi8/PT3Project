@@ -202,6 +202,7 @@
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\kendo.all.min.js" />
     <Content Include="section_mark.aspx" />
+    <Content Include="StudentModule\RegisterSection.aspx" />
     <Content Include="TestModule\SessionCreator.aspx" />
     <Content Include="TestModule\Test Register.aspx" />
     <Content Include="WebForm1.aspx" />
@@ -480,6 +481,13 @@
     <Compile Include="Log In.aspx.designer.cs">
       <DependentUpon>Log In.aspx</DependentUpon>
     </Compile>
+    <Compile Include="StudentModule\RegisterSection.aspx.cs">
+      <DependentUpon>RegisterSection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentModule\RegisterSection.aspx.designer.cs">
+      <DependentUpon>RegisterSection.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TestModule\SessionCreator.aspx.cs">
       <DependentUpon>SessionCreator.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -533,6 +541,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Bootstrap\" />
+    <Folder Include="LecturerModule\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

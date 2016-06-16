@@ -109,20 +109,6 @@
     <Parameter Name="u_name" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.SelectCourseOffered" Method="SelectCourseOffered">
-    <ElementType Name="SelectCourseOfferedResult">
-      <Column Name="c_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="c_code" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="c_name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="c_credit" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="co_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="c_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="s_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="s_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="s_year" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="s_sem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.SelectSection" Method="SelectSection">
     <ElementType Name="SelectSectionResult">
       <Column Name="sec_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -150,5 +136,44 @@
     <Parameter Name="c_id" Type="System.Int32" DbType="Int" />
     <Parameter Name="co_id" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SelectCourseOffered" Method="SelectCourseOffered">
+    <ElementType Name="SelectCourseOfferedResult">
+      <Column Name="display_name" Type="System.String" DbType="VarChar(266)" CanBeNull="true" />
+      <Column Name="c_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_code" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="c_name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="c_credit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="co_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="s_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="s_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="s_year" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="s_sem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectSectionWithCourseOffered" Method="SelectSectionWithCourseOffered">
+    <Parameter Name="co_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SelectSectionWithCourseOfferedResult">
+      <Column Name="display_name" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sec_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="co_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sec_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_name" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="co_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="s_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_code" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="c_name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="c_credit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="s_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="s_year" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="s_sem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="u_name1" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="p_name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="p_phone_no" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="p_email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

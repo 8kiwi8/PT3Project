@@ -19,7 +19,7 @@
                 <asp:Label ID="Label2" runat="server" Text='<%# Bind("c_name") %>'/>
             </ItemTemplate>
             <FooterTemplate>
-                <asp:DropDownList ID="NewSectionCourse" runat="server" DataSourceID="LinqDataSource3" DataTextField="name" DataValueField="co_id"></asp:DropDownList>
+                <asp:DropDownList ID="NewSectionCourse" runat="server" DataSourceID="LinqDataSource3" DataTextField="display_name" DataValueField="co_id"></asp:DropDownList>
             </FooterTemplate>
         </asp:TemplateField>
         <asp:TemplateField HeaderText="Lecturer" SortExpression="u_name">
@@ -41,7 +41,7 @@
                 <asp:Label ID="Label4" runat="server" Text='<%# Bind("sec_no") %>'/>
             </ItemTemplate>
             <FooterTemplate>
-                <asp:TextBox ID="NewSectionNo" TextMode="Number" runat="server" min="0" max="20" step="1"/>
+                <asp:TextBox ID="NewSectionNo" TextMode="Number" runat="server" min="1" max="20" step="1" Text="1"/>
             </FooterTemplate>
         </asp:TemplateField>
         <asp:TemplateField>

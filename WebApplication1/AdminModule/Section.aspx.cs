@@ -24,11 +24,7 @@ namespace WebApplication1.AdminModule
 
         protected void LinqDataSource3_Selecting(object sender, LinqDataSourceSelectEventArgs e)
         {
-            var courses = from c in campusweb.courses
-                          join co in campusweb.course_offereds on c.c_id equals co.c_id
-                          select new { name = c.c_code + " " + c.c_name, co.co_id };
-
-            e.Result = courses;
+            e.Result = campusweb.SelectCourseOffered();
         }
 
         protected void LinqDataSource4_Selecting(object sender, LinqDataSourceSelectEventArgs e)
