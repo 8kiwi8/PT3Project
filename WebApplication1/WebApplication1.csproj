@@ -191,6 +191,7 @@
     <Content Include="Content\kendo.bootstrap.min.css" />
     <Content Include="Content\kendo.common.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Log Out.aspx" />
     <Content Include="RegisterStudent_1.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -212,8 +213,6 @@
       <LastGenOutput>Campusweb.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Log Out.aspx" />
-    <Content Include="WebForm3.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -427,6 +426,13 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Log Out.aspx.cs">
+      <DependentUpon>Log Out.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Log Out.aspx.designer.cs">
+      <DependentUpon>Log Out.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegisterStudent_1.aspx.cs">
       <DependentUpon>RegisterStudent_1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -523,20 +529,6 @@
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Log Out.aspx.cs">
-      <DependentUpon>Log Out.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Log Out.aspx.designer.cs">
-      <DependentUpon>Log Out.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm3.aspx.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm3.aspx.designer.cs">
-      <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

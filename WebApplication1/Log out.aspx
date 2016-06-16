@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Log Out.aspx.cs" Inherits="WebApplication1.WebForm2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Log Out.aspx.cs" Inherits="WebApplication1.Log_Out" %>
 
 <!DOCTYPE html>
 
