@@ -42,7 +42,9 @@ namespace WebApplication1.TestModule
 
             if (result >= 1)
             {
+                Session["id"] = txtUserName.Text;
                 Response.Redirect("homepage.aspx");
+                Session.RemoveAll();
             }
             else
                 lblMsg.Text = "Incorrect Username or Password";
