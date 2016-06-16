@@ -194,6 +194,7 @@
     <Content Include="Log In.aspx" />
     <Content Include="TestModule\SessionCreator.aspx" />
     <Content Include="TestModule\Test Register.aspx" />
+    <Content Include="TestModule\WebForm1.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="Campusweb.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -453,6 +454,13 @@
     </Compile>
     <Compile Include="TestModule\Test Register.aspx.designer.cs">
       <DependentUpon>Test Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestModule\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestModule\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
