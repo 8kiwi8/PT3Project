@@ -9,7 +9,6 @@
 
 namespace WebApplication1 {
     
-    
     public partial class student_mark1 {
         
         /// <summary>
