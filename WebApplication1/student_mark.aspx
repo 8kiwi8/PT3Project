@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="student_mark.aspx.cs" Inherits="WebApplication1.student_mark1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <p>
+        Added To Keep This
         <br />
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [student_mark] WHERE [u_name] = @original_u_name AND [sm_id] = @original_sm_id AND [stum_score] = @original_stum_score" InsertCommand="INSERT INTO [student_mark] ([u_name], [sm_id], [stum_score]) VALUES (@u_name, @sm_id, @stum_score)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [student_mark]" UpdateCommand="UPDATE [student_mark] SET [stum_score] = @stum_score WHERE [u_name] = @original_u_name AND [sm_id] = @original_sm_id AND [stum_score] = @original_stum_score">
             <DeleteParameters>
