@@ -203,6 +203,7 @@
     <Content Include="Scripts\kendo.all.min.js" />
     <Content Include="section_mark.aspx" />
     <Content Include="StudentModule\RegisterSection.aspx" />
+    <Content Include="student_mark.aspx" />
     <Content Include="TestModule\SessionCreator.aspx" />
     <Content Include="TestModule\Test Register.aspx" />
     <Content Include="WebForm1.aspx" />
@@ -487,6 +488,13 @@
     </Compile>
     <Compile Include="StudentModule\RegisterSection.aspx.designer.cs">
       <DependentUpon>RegisterSection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="student_mark.aspx.cs">
+      <DependentUpon>student_mark.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student_mark.aspx.designer.cs">
+      <DependentUpon>student_mark.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestModule\SessionCreator.aspx.cs">
       <DependentUpon>SessionCreator.aspx</DependentUpon>
