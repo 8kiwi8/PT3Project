@@ -1978,7 +1978,7 @@ namespace WebApplication1
 	public partial class SelectSectionWithCourseOfferedResult
 	{
 		
-		private System.Nullable<int> _display_name;
+		private string _display_name;
 		
 		private int _sec_id;
 		
@@ -2020,8 +2020,8 @@ namespace WebApplication1
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="Int")]
-		public System.Nullable<int> display_name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(277)")]
+		public string display_name
 		{
 			get
 			{

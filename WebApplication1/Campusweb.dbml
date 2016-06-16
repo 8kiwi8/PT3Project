@@ -155,7 +155,7 @@
   <Function Name="dbo.SelectSectionWithCourseOffered" Method="SelectSectionWithCourseOffered">
     <Parameter Name="co_id" Type="System.Int32" DbType="Int" />
     <ElementType Name="SelectSectionWithCourseOfferedResult">
-      <Column Name="display_name" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="display_name" Type="System.String" DbType="VarChar(277)" CanBeNull="true" />
       <Column Name="sec_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="co_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="sec_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
