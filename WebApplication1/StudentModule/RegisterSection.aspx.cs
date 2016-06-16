@@ -23,7 +23,24 @@ namespace WebApplication1.StudentModule
 
         protected void LinqDataSource2_Selecting(object sender, LinqDataSourceSelectEventArgs e)
         {
-            e.Result = campusweb.SelectSectionWithCourseOffered(Int32.Parse(AvaiableCourse.SelectedValue));
+            e.Result = campusweb.SelectSectionWithCourseOfferedAndStudent(Int32.Parse(AvaiableCourse.SelectedValue), "teststudent");
+        }
+
+        protected void AvaiableCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridView gv1 = (GridView)UpdatePanel1.FindControl("GridView1");
+            DetailsView dv1 = (DetailsView)UpdatePanel1.FindControl("DetailsView1");
+            gv1.DataBind();
+            dv1.PageIndex = AvaiableCourse.SelectedIndex;
+            dv1.DataBind();
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridView gv1 = (GridView)UpdatePanel1.FindControl("GridView1");
+            int sec_id = Int32.Parse(gv1.SelectedValue.ToString());
+            campusweb.InsertSectionStudent("teststudent", sec_id);
+            gv1.DataBind();
         }
     }
 }
