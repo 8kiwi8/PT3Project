@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Data;
 
 namespace WebApplication1
 {
@@ -14,7 +15,7 @@ namespace WebApplication1
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Label1.Text = Session["id"].ToString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -37,9 +38,9 @@ namespace WebApplication1
 
                 if (dt.Rows.Count > 0)
                 {
-                    Session["id"] = txtU_name.Text;
+                    
                     Response.Redirect("homepage.aspx");
-                    Session.RemoveAll();
+                    
                 }
                 else
                 {

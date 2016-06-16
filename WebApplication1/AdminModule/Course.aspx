@@ -52,6 +52,22 @@
         </asp:TemplateField>
         <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
         </Columns>
+        
     </asp:GridView>
-
+    <asp:SqlDataSource runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [course] WHERE [c_id] = @c_id" InsertCommand="INSERT INTO [course] ([c_code], [c_name], [c_credit]) VALUES (@c_code, @c_name, @c_credit)" SelectCommand="SELECT * FROM [course]" UpdateCommand="UPDATE [course] SET [c_code] = @c_code, [c_name] = @c_name, [c_credit] = @c_credit WHERE [c_id] = @c_id">
+        <DeleteParameters>
+            <asp:Parameter Name="c_id" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="c_code" Type="String" />
+            <asp:Parameter Name="c_name" Type="String" />
+            <asp:Parameter Name="c_credit" Type="Int32" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="c_code" Type="String" />
+            <asp:Parameter Name="c_name" Type="String" />
+            <asp:Parameter Name="c_credit" Type="Int32" />
+            <asp:Parameter Name="c_id" Type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
 </asp:Content>

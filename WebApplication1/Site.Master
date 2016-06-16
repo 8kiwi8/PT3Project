@@ -11,9 +11,16 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
+    <asp:ContentPlaceHolder ID="Stylesheets" runat="server">
+        <link rel="stylesheet" href="<%= Page.ResolveClientUrl("~/Content/kendo.common.min.css") %>" type="text/css" />
+        <link rel="stylesheet" href="<%= Page.ResolveClientUrl("~/Content/kendo.bootstrap.min.css") %>" type="text/css" />
+    </asp:ContentPlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <script type="text/javascript" 
+        src="<%= Page.ResolveClientUrl("~/Scripts/jquery.min.js") %>"></script>
+    <script type="text/javascript" 
+        src="<%= Page.ResolveClientUrl("~/Scripts/kendo.all.min.js") %>"></script>
 </head>
 <body>
     <form runat="server">
@@ -22,7 +29,6 @@
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="bootstrap" />
                 <asp:ScriptReference Name="respond" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />

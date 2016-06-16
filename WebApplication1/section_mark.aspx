@@ -1,7 +1,7 @@
 ﻿<%@ Page EnableEventValidation="false" Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="section_mark.aspx.cs" Inherits="WebApplication1.section_mark" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [section_mark] WHERE [sm_id] = @original_sm_id AND [s_id] = @original_s_id AND [sm_item] = @original_sm_item AND [sm_total] = @original_sm_total AND [sm_percentage] = @original_sm_percentage" InsertCommand="INSERT INTO [section_mark] ([s_id], [sm_item], [sm_total], [sm_percentage]) VALUES (@s_id, @sm_item, @sm_total, @sm_percentage)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [section_mark]" UpdateCommand="UPDATE [section_mark] SET [s_id] = @s_id, [sm_item] = @sm_item, [sm_total] = @sm_total, [sm_percentage] = @sm_percentage WHERE [sm_id] = @original_sm_id AND [s_id] = @original_s_id AND [sm_item] = @original_sm_item AND [sm_total] = @original_sm_total AND [sm_percentage] = @original_sm_percentage">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [section_mark] WHERE [sm_id] = @original_sm_id AND [sec_id] = @original_s_id AND [sm_item] = @original_sm_item AND [sm_total] = @original_sm_total AND [sm_percentage] = @original_sm_percentage" InsertCommand="INSERT INTO [section_mark] ([sec_id], [sm_item], [sm_total], [sm_percentage]) VALUES (@s_id, @sm_item, @sm_total, @sm_percentage)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [section_mark]" UpdateCommand="UPDATE [section_mark] SET [sec_id] = @s_id, [sm_item] = @sm_item, [sm_total] = @sm_total, [sm_percentage] = @sm_percentage WHERE [sm_id] = @original_sm_id AND [sec_id] = @original_s_id AND [sm_item] = @original_sm_item AND [sm_total] = @original_sm_total AND [sm_percentage] = @original_sm_percentage">
         <DeleteParameters>
             <asp:Parameter Name="original_sm_id" Type="Int32" />
             <asp:Parameter Name="original_s_id" Type="Int32" />
@@ -32,9 +32,9 @@
     <br />
     <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" DataKeyNames="sm_id"  ShowFooter="True">
         <Columns>
-            <asp:TemplateField HeaderText="Section ID" SortExpression="s_id">
+            <asp:TemplateField HeaderText="Section ID" SortExpression="sec_id">
                 <EditItemTemplate>
-                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="s_id" DataValueField="s_id" SelectedValue='<%# Bind("s_id") %>'>
+                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2" DataTextField="sec_id" DataValueField="sec_id" SelectedValue='<%# Bind("sec_id") %>'>
                     </asp:DropDownList>
                 </EditItemTemplate>
                 <FooterTemplate>
@@ -43,7 +43,7 @@
                     <asp:RangeValidator ID="RangeValidator_s_id" runat="server" ControlToValidate="txts_id" Display="Dynamic" ErrorMessage="Invalid section! Enter available section only." MaximumValue="5" MinimumValue="1" Type="Integer"></asp:RangeValidator>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("s_id") %>'></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("sec_id") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Section Mark Item" SortExpression="sm_item">
@@ -66,6 +66,8 @@
                 </EditItemTemplate>
                 <FooterTemplate>
                     <asp:TextBox ID="txtsm_total" runat="server"></asp:TextBox>
+                    <br />
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtsm_total" Display="Dynamic" ErrorMessage="Total Mark should be 1-100" MaximumValue="100" MinimumValue="1" Type="Integer"></asp:RangeValidator>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("sm_total") %>'></asp:Label>
@@ -79,6 +81,8 @@
                 </EditItemTemplate>
                 <FooterTemplate>
                     <asp:TextBox ID="txtsm_percentage" runat="server"></asp:TextBox>
+                    <br />
+                    <asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="txtsm_percentage" Display="Dynamic" ErrorMessage="Percentage should be 0.01-1.00" MaximumValue="1.0" MinimumValue="0.01" Type="Double"></asp:RangeValidator>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("sm_percentage") %>'></asp:Label>

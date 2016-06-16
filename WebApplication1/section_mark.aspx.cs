@@ -27,7 +27,7 @@ namespace WebApplication1
             TextBox txtpercentage = (TextBox)GridView1.FooterRow.FindControl("txtsm_percentage");
 
             // insert values into database
-            string query = "insert into section_mark (s_id, sm_item, sm_total, sm_percentage) values ('"+ txtid.Text + "','" + txtitem.Text + "','" + txttotal.Text + "','" + txtpercentage.Text + "')";
+            string query = "insert into section_mark (sec_id, sm_item, sm_total, sm_percentage) values ('"+ txtid.Text + "','" + txtitem.Text + "','" + txttotal.Text + "','" + txtpercentage.Text + "')";
             SqlCommand cmd = new SqlCommand(query, conn);
             //Console.Write(query);
             conn.Open();
