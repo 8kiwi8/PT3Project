@@ -172,6 +172,11 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AdminModule\Course.aspx" />
+    <Content Include="AdminModule\CourseOfferedService.asmx" />
+    <Content Include="AdminModule\Course_Offered.aspx" />
+    <Content Include="AdminModule\Section.aspx" />
+    <Content Include="AdminModule\SectionKendoGrid.aspx" />
+    <Content Include="AdminModule\SectionService.asmx" />
     <Content Include="App_Data\campusweb.mdf" />
     <Content Include="App_Data\campusweb_log.ldf">
       <DependentUpon>campusweb.mdf</DependentUpon>
@@ -179,6 +184,8 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\kendo.bootstrap.min.css" />
+    <Content Include="Content\kendo.common.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -187,6 +194,8 @@
     <Content Include="Account\Web.config" />
     <Content Include="homepage.aspx" />
     <Content Include="Log In.aspx" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\kendo.all.min.js" />
     <Content Include="TestModule\SessionCreator.aspx" />
     <Content Include="TestModule\Test Register.aspx" />
     <Content Include="WebForm1.aspx" />
@@ -356,6 +365,35 @@
     <Compile Include="AdminModule\Course.aspx.designer.cs">
       <DependentUpon>Course.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminModule\CourseOfferedService.asmx.cs">
+      <DependentUpon>CourseOfferedService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdminModule\Course_Offered.aspx.cs">
+      <DependentUpon>Course_Offered.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminModule\Course_Offered.aspx.designer.cs">
+      <DependentUpon>Course_Offered.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\Section.aspx.cs">
+      <DependentUpon>Section.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminModule\Section.aspx.designer.cs">
+      <DependentUpon>Section.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\SectionKendoGrid.aspx.cs">
+      <DependentUpon>SectionKendoGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminModule\SectionKendoGrid.aspx.designer.cs">
+      <DependentUpon>SectionKendoGrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminModule\SectionService.asmx.cs">
+      <DependentUpon>SectionService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -456,6 +494,9 @@
     <None Include="Campusweb.dbml.layout">
       <DependentUpon>Campusweb.dbml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Bootstrap\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
