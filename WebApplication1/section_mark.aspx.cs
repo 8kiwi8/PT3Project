@@ -21,7 +21,7 @@ namespace WebApplication1
 
             // find values for update
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
-            TextBox txtid = (TextBox)GridView1.FooterRow.FindControl("txts_id");
+            TextBox txtid = (TextBox)GridView1.FooterRow.FindControl("txtsec_id");
             TextBox txtitem = (TextBox)GridView1.FooterRow.FindControl("txtsm_item");
             TextBox txttotal = (TextBox)GridView1.FooterRow.FindControl("txtsm_total");
             TextBox txtpercentage = (TextBox)GridView1.FooterRow.FindControl("txtsm_percentage");

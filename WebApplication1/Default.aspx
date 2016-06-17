@@ -1,14 +1,15 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebApplication1._Default" %>
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
     <div class="container">
-<!-- Jumbotron Header -->
+
+        <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
             <h1>A Warm Welcome!</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-            <p><a class="btn btn-primary btn-large">Call to action!</a>
-            </p>
+            <p>Here is a centralized platform for the use of lecturers and students in managing courses, subjects and sections. </p>
         </header>
 
         <hr>
@@ -77,6 +78,6 @@
             </div>
 
         </div>
-        <!-- /.row -->
+
     </div>
 </asp:Content>
