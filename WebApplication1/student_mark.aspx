@@ -29,7 +29,7 @@
                     <EditItemTemplate>
                         <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("stum_score") %>'></asp:TextBox>
                         <br />
-                        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox1" Display="Dynamic" ErrorMessage="Student Mark should be 1-100" MaximumValue="100" MinimumValue="1" Type="Integer"></asp:RangeValidator>
+                        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="TextBox1" Display="Dynamic" ErrorMessage="Student Mark should be 1-100" MaximumValue="100" MinimumValue="1" Type="Integer" CssClass="alert-warning"></asp:RangeValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("stum_score") %>'></asp:Label>
