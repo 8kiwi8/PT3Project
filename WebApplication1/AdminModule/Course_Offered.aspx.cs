@@ -18,7 +18,8 @@ namespace WebApplication1.AdminModule
 
         protected void LinqDataSource1_Selecting(object sender, LinqDataSourceSelectEventArgs e)
         {
-            var courseOffered = campusweb.SelectCourseOffered();
+            int s_id = Int32.Parse(semester.SelectedValue);
+            var courseOffered = campusweb.SelectCourseOfferedWithSemester(s_id);
             e.Result = courseOffered;
         }
 
@@ -68,6 +69,17 @@ namespace WebApplication1.AdminModule
             DropDownList course = (DropDownList)GridView1.FooterRow.FindControl("DropDownList2");
             campusweb.InsertCourseOffered(Int32.Parse(semester.SelectedValue), Int32.Parse(course.SelectedValue));
             GridView1.DataBind();
+        }
+
+        protected void LinqDataSource4_Selecting(object sender, LinqDataSourceSelectEventArgs e)
+        {
+            e.Result = campusweb.SelectSemester();
+        }
+
+        protected void semester_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridView gv1 = (GridView)UpdatePanel1.FindControl("GridView1");
+            gv1.DataBind();
         }
     }
 }

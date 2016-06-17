@@ -77,7 +77,7 @@
         <classShapeMoniker Id="c5cde6e4-f191-4fe9-a6d4-e4b978efed2c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(0.84375 : 5.75); (0.84375 : 3.63869466145833); (6.5 : 3.63869466145833)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(0.84375 : 5.75); (0.84375 : 3.63869466145833); (3.16666666666667 : 3.63869466145833 : JumpStart); (3.33333333333333 : 3.63869466145833 : JumpEnd); (6.5 : 3.63869466145833)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CampuswebDataContext/user/user_section" />
       <nodes>
         <classShapeMoniker Id="db9a07b6-7a68-471c-a80b-b0925f40daff" />
@@ -91,7 +91,7 @@
         <classShapeMoniker Id="5c3aaa7f-f8da-40c7-ad77-d120b2abd958" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3 : 1.88064697265625); (3.75 : 1.88064697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(3 : 1.88064697265625); (3.16666666666667 : 1.88064697265625 : JumpStart); (3.33333333333333 : 1.88064697265625 : JumpEnd); (3.75 : 1.88064697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CampuswebDataContext/semester/semester_course_offered" />
       <nodes>
         <classShapeMoniker Id="e9f37571-982d-4109-a7be-d6e388fc59b4" />
@@ -105,7 +105,7 @@
         <classShapeMoniker Id="46eaf369-744a-4248-ac21-135961d90b21" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 6.21081812109375); (6.5 : 6.21081812109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 6.21081812109375); (3.16666666666667 : 6.21081812109375 : JumpStart); (3.33333333333333 : 6.21081812109375 : JumpEnd); (6.5 : 6.21081812109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/CampuswebDataContext/user/user_student_mark" />
       <nodes>
         <classShapeMoniker Id="db9a07b6-7a68-471c-a80b-b0925f40daff" />

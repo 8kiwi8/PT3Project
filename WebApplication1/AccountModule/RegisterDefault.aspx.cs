@@ -15,7 +15,6 @@ namespace WebApplication1
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = Session["id"].ToString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -28,30 +27,23 @@ namespace WebApplication1
                 cmd.Parameters.AddWithValue("@u_password", txtU_passsword.Text);
                 cmd.Parameters.AddWithValue("@u_level", txtU_level.Text);
 
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-
                 conn.Open();
                 int i = cmd.ExecuteNonQuery();
                 conn.Close();
 
-                if (dt.Rows.Count > 0)
+                if (i > 0)
                 {
-                    
-                    Response.Redirect("homepage.aspx");
-                    
+                    Response.Redirect("~/AdminModule/Account.aspx");
                 }
                 else
                 {
-                    Label1.Text = "You're username and word is incorrect";
+                    Label1.Text = "Account Creation Failed";
                     Label1.ForeColor = System.Drawing.Color.Red;
                 }
-
-                }
-            catch (ArgumentException ex)
+            }
+            catch (Exception ex)
             {
-                Label1.Text = "You're username and word is incorrect";
+                Label1.Text = "Your username has been taken";
                 //Label1.ForeColor = System.Drawing.Color.Red;
             }
 
