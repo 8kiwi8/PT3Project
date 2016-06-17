@@ -56,30 +56,26 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <%if (Session["u_level"] != null) {%>
+                        <%if (Session["u_level"].Equals("admin")) {%>
+                        <li><a runat="server" href="~/AdminModule/Account">Account</a></li>
+                        <li><a runat="server" href="~/AdminModule/Course">Course</a></li>
+                        <li><a runat="server" href="~/AdminModule/Course_Offered">Semester Course</a></li>
+                        <li><a runat="server" href="~/AdminModule/Section">Section</a></li>
+                        <% } else if (Session["u_level"].Equals("lecturer")) {%>
+                        <li><a runat="server" href="~/About">Lecturer</a></li>
+                        <% } else if (Session["u_level"].Equals("student")) {%>
+                        <li><a runat="server" href="~/About">Student</a></li>
+                        <% } } %>
                     </ul>
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <%if (Session["u_name"] != null) {%>
-                                <li><a runat="server">Welcome <% Response.Write(Session["p_name"]); %></a></li>
-                                <% } else { %>
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
-                                <% } %>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
+                    <ul class="nav navbar-nav navbar-right">
+                        <%if (Session["u_name"] != null) {%>
+                        <li><a runat="server">Welcome, <% Response.Write(Session["p_name"]); %></a></li>
+                        <li><a runat="server" href="~/AccountModule/Logout">Logout</a></li>
+                        <% } else { %>
+                        <li><a runat="server" href="~/AccountModule/Login">Log in</a></li>
+                        <% } %>
+                    </ul>
                 </div>
             </div>
         </div>

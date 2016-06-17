@@ -31,5 +31,13 @@ namespace WebApplication1.AdminModule
             TextBox3.Text = String.Empty;
             GridView1.DataBind();
         }
+
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+            if (GridView1.EditIndex > -1)
+                GridView1.FooterRow.Visible = false;
+            else
+                GridView1.FooterRow.Visible = true;
+        }
     }
 }

@@ -18,7 +18,11 @@ namespace WebApplication1.AdminModule
 
         protected void LinqDataSource1_Selecting(object sender, LinqDataSourceSelectEventArgs e)
         {
-            var courseOffered = campusweb.SelectSection();
+            int s_id = Int32.Parse(semesterFilter.SelectedValue);
+            string u_name = lecturerFilter.SelectedValue;
+            int co_id = Int32.Parse(courseFilter.SelectedValue);
+
+            var courseOffered = campusweb.SelectSectionWithCourseOfferedOrSemesterOrLecturer(co_id, s_id, u_name);
             e.Result = courseOffered;
         }
 
@@ -78,6 +82,27 @@ namespace WebApplication1.AdminModule
                 GridView1.FooterRow.Visible = false;
             else
                 GridView1.FooterRow.Visible = true;
+        }
+
+        protected void LinqDataSource5_Selecting(object sender, LinqDataSourceSelectEventArgs e)
+        {
+            e.Result = campusweb.SelectSemester();
+        }
+
+        protected void LinqDataSource6_Selecting(object sender, LinqDataSourceSelectEventArgs e)
+        {
+            e.Result = campusweb.SelectUserWithLecturer();
+        }
+
+        protected void LinqDataSource7_Selecting(object sender, LinqDataSourceSelectEventArgs e)
+        {
+            e.Result = campusweb.SelectCourse();
+        }
+
+        protected void Filter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridView gv1 = (GridView)UpdatePanel1.FindControl("GridView1");
+            gv1.DataBind();
         }
     }
 }

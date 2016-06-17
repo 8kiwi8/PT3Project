@@ -1,7 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisterStudent_1.aspx.cs" Inherits="WebApplication1.Create_Profile_1" %>
-
-<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegisterDefault.aspx.cs" Inherits="WebApplication1.Create_Profile_1" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -45,9 +42,9 @@
                 <td>Type Of User</td>
                 <td>
                     <asp:RadioButtonList ID="txtU_level" runat="server">
-                        <asp:ListItem Text="Admin" Value="Admin"></asp:ListItem>
-                        <asp:ListItem Text="Lecturer" Value="Lecturer"></asp:ListItem>
-                        <asp:ListItem Text="Student" Value="Student"></asp:ListItem>
+                        <asp:ListItem Text="Admin" Value="admin"></asp:ListItem>
+                        <asp:ListItem Text="Lecturer" Value="lecturer"></asp:ListItem>
+                        <asp:ListItem Text="Student" Value="student"></asp:ListItem>
                     </asp:RadioButtonList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtU_level" ErrorMessage="Please pick the user type"></asp:RequiredFieldValidator>
                 </td>
@@ -59,7 +56,6 @@
             </tr>
         </table>
         <asp:Label ID="Label1" runat="server"></asp:Label>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [user]"></asp:SqlDataSource>
     </div>
     </form>
 </body>

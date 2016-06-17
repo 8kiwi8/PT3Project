@@ -160,6 +160,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AccountModule\Login.aspx" />
+    <Content Include="AccountModule\Register.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -175,6 +177,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AdminModule\Account.aspx" />
     <Content Include="AdminModule\Course.aspx" />
     <Content Include="AdminModule\CourseOfferedService.asmx" />
     <Content Include="AdminModule\Course_Offered.aspx" />
@@ -191,15 +194,13 @@
     <Content Include="Content\kendo.bootstrap.min.css" />
     <Content Include="Content\kendo.common.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Log Out.aspx" />
-    <Content Include="RegisterStudent_1.aspx" />
+    <Content Include="AccountModule\Logout.aspx" />
+    <Content Include="AccountModule\RegisterDefault.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Account\Web.config" />
-    <Content Include="homepage.aspx" />
-    <Content Include="Log In.aspx" />
+    <Content Include="AccountModule\LoginDefault.aspx" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\kendo.all.min.js" />
     <Content Include="section_mark.aspx" />
@@ -209,12 +210,12 @@
     <Content Include="TestModule\Test Register.aspx" />
     <Content Include="TestModule\TestStudentMark.aspx" />
     <Content Include="TestModule\WebForm1.aspx" />
-    <Content Include="WebForm1.aspx" />
     <Content Include="Campusweb.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Campusweb.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -264,6 +265,27 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccountModule\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountModule\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccountModule\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountModule\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
       <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -369,6 +391,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminModule\Account.aspx.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminModule\Account.aspx.designer.cs">
+      <DependentUpon>Account.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminModule\Course.aspx.cs">
       <DependentUpon>Course.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -406,13 +435,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -421,26 +443,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Campusweb.dbml</DependentUpon>
     </Compile>
+    <Compile Include="AccountModule\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountModule\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccountModule\RegisterDefault.aspx.cs">
+      <DependentUpon>RegisterDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccountModule\RegisterDefault.aspx.designer.cs">
+      <DependentUpon>RegisterDefault.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Log Out.aspx.cs">
-      <DependentUpon>Log Out.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Log Out.aspx.designer.cs">
-      <DependentUpon>Log Out.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RegisterStudent_1.aspx.cs">
-      <DependentUpon>RegisterStudent_1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RegisterStudent_1.aspx.designer.cs">
-      <DependentUpon>RegisterStudent_1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -451,13 +473,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="homepage.aspx.cs">
-      <DependentUpon>homepage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="homepage.aspx.designer.cs">
-      <DependentUpon>homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -483,12 +498,12 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="Log In.aspx.cs">
-      <DependentUpon>Log In.aspx</DependentUpon>
+    <Compile Include="AccountModule\LoginDefault.aspx.cs">
+      <DependentUpon>LoginDefault.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Log In.aspx.designer.cs">
-      <DependentUpon>Log In.aspx</DependentUpon>
+    <Compile Include="AccountModule\LoginDefault.aspx.designer.cs">
+      <DependentUpon>LoginDefault.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentModule\RegisterSection.aspx.cs">
       <DependentUpon>RegisterSection.aspx</DependentUpon>
@@ -538,13 +553,6 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

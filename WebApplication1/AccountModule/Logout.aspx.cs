@@ -11,7 +11,8 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label1.Text = Session["id"].ToString();
+            Session.RemoveAll();
+            Response.Redirect("~/");
         }
 
         protected void Button1_Click(object sender, EventArgs e)
