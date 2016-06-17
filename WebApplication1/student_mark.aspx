@@ -21,7 +21,7 @@
                 <asp:Parameter Name="original_stum_score" Type="Double" />
             </UpdateParameters>
         </asp:SqlDataSource>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" CssClass="table">
             <Columns>
                 <asp:BoundField DataField="u_name" HeaderText="Student Name" ReadOnly="True" SortExpression="u_name" />
                 <asp:BoundField DataField="sm_id" HeaderText="Section Mark ID" ReadOnly="True" SortExpression="sm_id" />
