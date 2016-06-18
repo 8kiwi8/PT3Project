@@ -307,4 +307,113 @@
       <Column Name="c_credit" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SelectStudentMarkWithStudentIDAndSemester" Method="SelectStudentMarkWithStudentIDAndSemester">
+    <Parameter Name="u_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="s_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SelectStudentMarkWithStudentIDAndSemesterResult">
+      <Column Name="u_name" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="sm_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stum_score" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="u_name1" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="p_name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="p_phone_no" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="p_email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="sm_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sec_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sm_item" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="sm_total" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="sm_percentage" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="sec_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="co_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sec_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_name2" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="co_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="s_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_code" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="c_name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="c_credit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectSectionWithStudentID" Method="SelectSectionWithStudentID">
+    <Parameter Name="u_name" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="SelectSectionWithStudentIDResult">
+      <Column Name="display_name" Type="System.String" DbType="VarChar(277)" CanBeNull="true" />
+      <Column Name="sec_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="co_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sec_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_name" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="co_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="s_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_code" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="c_name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="c_credit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="s_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="s_year" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="s_sem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="u_name1" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="p_name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="p_phone_no" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="p_email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectSectionWithStudentIDAndSemesterID" Method="SelectSectionWithStudentIDAndSemesterID">
+    <Parameter Name="u_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="s_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SelectSectionWithStudentIDAndSemesterIDResult">
+      <Column Name="display_name" Type="System.String" DbType="VarChar(277)" CanBeNull="true" />
+      <Column Name="sec_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="co_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sec_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_name" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="co_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="s_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_code" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="c_name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="c_credit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="s_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="s_year" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="s_sem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="u_name1" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="p_name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="p_phone_no" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="p_email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectStudentMarkWithStudentIDAndSemesterAndSection" Method="SelectStudentMarkWithStudentIDAndSemesterAndSection">
+    <Parameter Name="u_name" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="s_id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sec_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SelectStudentMarkWithStudentIDAndSemesterAndSectionResult">
+      <Column Name="u_name" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="sm_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stum_score" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="u_name1" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="p_name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="p_phone_no" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="p_email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="sm_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sec_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sm_item" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="sm_total" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="sm_percentage" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="sec_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="co_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sec_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="u_name2" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="co_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="s_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_id1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_code" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="c_name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="c_credit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="total_percentage" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
