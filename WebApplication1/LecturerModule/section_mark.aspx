@@ -95,7 +95,7 @@
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" CssClass="btn btn-primary"></asp:LinkButton>
                     &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" CssClass="btn btn-danger"></asp:LinkButton>
-                    <ajaxToolkit:ConfirmButtonExtender ID="LinkButton2_ConfirmButtonExtender" runat="server" BehaviorID="LinkButton2_ConfirmButtonExtender" ConfirmText="Confirm to Delete?" TargetControlID="LinkButton2" />
+                    
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
