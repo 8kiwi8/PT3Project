@@ -1,4 +1,5 @@
 ﻿<%@ Page EnableEventValidation="false" Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="section_mark.aspx.cs" Inherits="WebApplication1.section_mark" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [section_mark] WHERE [sm_id] = @original_sm_id AND [sec_id] = @original_sec_id AND [sm_item] = @original_sm_item AND [sm_total] = @original_sm_total AND [sm_percentage] = @original_sm_percentage" InsertCommand="INSERT INTO [section_mark] ([sec_id], [sm_item], [sm_total], [sm_percentage]) VALUES (@sec_id, @sm_item, @sm_total, @sm_percentage)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [section_mark]" UpdateCommand="UPDATE [section_mark] SET [sec_id] = @sec_id, [sm_item] = @sm_item, [sm_total] = @sm_total, [sm_percentage] = @sm_percentage WHERE [sm_id] = @original_sm_id AND [sec_id] = @original_sec_id AND [sm_item] = @original_sm_item AND [sm_total] = @original_sm_total AND [sm_percentage] = @original_sm_percentage">
@@ -99,6 +100,7 @@
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" CssClass="btn btn-primary"></asp:LinkButton>
                     &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" CssClass="btn btn-danger"></asp:LinkButton>
+                    <ajaxToolkit:ConfirmButtonExtender ID="LinkButton2_ConfirmButtonExtender" runat="server" BehaviorID="LinkButton2_ConfirmButtonExtender" ConfirmText="Confirm to Delete?" TargetControlID="LinkButton2" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
