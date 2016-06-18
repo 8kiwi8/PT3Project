@@ -35,7 +35,15 @@
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("stum_score") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:CommandField HeaderText="Actions" ShowEditButton="True" />
+                <asp:TemplateField HeaderText="Actions" ShowHeader="False">
+                    <EditItemTemplate>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="Update" CssClass="btn btn-primary"></asp:LinkButton>
+                        &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-warning"></asp:LinkButton>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" CssClass="btn btn-primary"></asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
     </p>
