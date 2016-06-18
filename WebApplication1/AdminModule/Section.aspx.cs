@@ -22,7 +22,7 @@ namespace WebApplication1.AdminModule
             string u_name = lecturerFilter.SelectedValue;
             int co_id = Int32.Parse(courseFilter.SelectedValue);
 
-            var courseOffered = campusweb.SelectSectionWithCourseOfferedOrSemesterOrLecturer(co_id, s_id, u_name);
+            var courseOffered = campusweb.SelectSectionWithCourseOfferedOrSemesterOrLecturer(co_id, u_name, s_id);
             e.Result = courseOffered;
         }
 

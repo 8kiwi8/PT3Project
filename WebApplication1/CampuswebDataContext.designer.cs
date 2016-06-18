@@ -159,10 +159,10 @@ namespace WebApplication1
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateSection")]
-		public int UpdateSection([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sec_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> co_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sec_no, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string u_name)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateCourseOffered")]
+		public int UpdateCourseOffered([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> s_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> c_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> co_id)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sec_id, co_id, sec_no, u_name);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), s_id, c_id, co_id);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -187,11 +187,11 @@ namespace WebApplication1
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertSectionStudent")]
-		public int InsertSectionStudent([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string u_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sec_id)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectCourse")]
+		public ISingleResult<SelectCourseResult> SelectCourse()
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), u_name, sec_id);
-			return ((int)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SelectCourseResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectCourseOffered")]
@@ -229,11 +229,11 @@ namespace WebApplication1
 			return ((ISingleResult<SelectSectionWithCourseOfferedAndStudentResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectSemester")]
-		public ISingleResult<SelectSemesterResult> SelectSemester()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectSectionWithCourseOfferedOrSemesterOrLecturer")]
+		public ISingleResult<SelectSectionWithCourseOfferedOrSemesterOrLecturerResult> SelectSectionWithCourseOfferedOrSemesterOrLecturer([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> co_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string u_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> s_id)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<SelectSemesterResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), co_id, u_name, s_id);
+			return ((ISingleResult<SelectSectionWithCourseOfferedOrSemesterOrLecturerResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectStudentMarkWithStudentID")]
@@ -243,11 +243,11 @@ namespace WebApplication1
 			return ((ISingleResult<SelectStudentMarkWithStudentIDResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateCourseOffered")]
-		public int UpdateCourseOffered([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> s_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> c_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> co_id)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectStudentMarkWithStudentIDAndSemester")]
+		public ISingleResult<SelectStudentMarkWithStudentIDAndSemesterResult> SelectStudentMarkWithStudentIDAndSemester([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string u_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> s_id)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), s_id, c_id, co_id);
-			return ((int)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), u_name, s_id);
+			return ((ISingleResult<SelectStudentMarkWithStudentIDAndSemesterResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectUserWithLecturer")]
@@ -257,39 +257,25 @@ namespace WebApplication1
 			return ((ISingleResult<SelectUserWithLecturerResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectSectionWithCourseOfferedOrSemesterOrLecturer")]
-		public ISingleResult<SelectSectionWithCourseOfferedOrSemesterOrLecturerResult> SelectSectionWithCourseOfferedOrSemesterOrLecturer([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> c_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> s_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string u_name)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UpdateSection")]
+		public int UpdateSection([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sec_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> co_id, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sec_no, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string u_name)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), c_id, s_id, u_name);
-			return ((ISingleResult<SelectSectionWithCourseOfferedOrSemesterOrLecturerResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), sec_id, co_id, sec_no, u_name);
+			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectCourse")]
-		public ISingleResult<SelectCourseResult> SelectCourse()
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectSemester")]
+		public ISingleResult<SelectSemesterResult> SelectSemester()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<SelectCourseResult>)(result.ReturnValue));
+			return ((ISingleResult<SelectSemesterResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectStudentMarkWithStudentIDAndSemester")]
-		public ISingleResult<SelectStudentMarkWithStudentIDAndSemesterResult> SelectStudentMarkWithStudentIDAndSemester([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string u_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> s_id)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.InsertSectionStudent")]
+		public int InsertSectionStudent([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string u_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> sec_id)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), u_name, s_id);
-			return ((ISingleResult<SelectStudentMarkWithStudentIDAndSemesterResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectSectionWithStudentID")]
-		public ISingleResult<SelectSectionWithStudentIDResult> SelectSectionWithStudentID([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string u_name)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), u_name);
-			return ((ISingleResult<SelectSectionWithStudentIDResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectSectionWithStudentIDAndSemesterID")]
-		public ISingleResult<SelectSectionWithStudentIDAndSemesterIDResult> SelectSectionWithStudentIDAndSemesterID([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string u_name, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> s_id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), u_name, s_id);
-			return ((ISingleResult<SelectSectionWithStudentIDAndSemesterIDResult>)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), u_name, sec_id);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectStudentMarkWithStudentIDAndSemesterAndSection")]
@@ -1521,10 +1507,106 @@ namespace WebApplication1
 		}
 	}
 	
-	public partial class SelectCourseOfferedResult
+	public partial class SelectCourseResult
 	{
 		
 		private string _display_name;
+		
+		private int _c_id;
+		
+		private string _c_code;
+		
+		private string _c_name;
+		
+		private System.Nullable<int> _c_credit;
+		
+		public SelectCourseResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(266)")]
+		public string display_name
+		{
+			get
+			{
+				return this._display_name;
+			}
+			set
+			{
+				if ((this._display_name != value))
+				{
+					this._display_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id", DbType="Int NOT NULL")]
+		public int c_id
+		{
+			get
+			{
+				return this._c_id;
+			}
+			set
+			{
+				if ((this._c_id != value))
+				{
+					this._c_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_code", DbType="VarChar(10)")]
+		public string c_code
+		{
+			get
+			{
+				return this._c_code;
+			}
+			set
+			{
+				if ((this._c_code != value))
+				{
+					this._c_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_name", DbType="VarChar(255)")]
+		public string c_name
+		{
+			get
+			{
+				return this._c_name;
+			}
+			set
+			{
+				if ((this._c_name != value))
+				{
+					this._c_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_credit", DbType="Int")]
+		public System.Nullable<int> c_credit
+		{
+			get
+			{
+				return this._c_credit;
+			}
+			set
+			{
+				if ((this._c_credit != value))
+				{
+					this._c_credit = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SelectCourseOfferedResult
+	{
 		
 		private int _c_id;
 		
@@ -1548,22 +1630,6 @@ namespace WebApplication1
 		
 		public SelectCourseOfferedResult()
 		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(266)")]
-		public string display_name
-		{
-			get
-			{
-				return this._display_name;
-			}
-			set
-			{
-				if ((this._display_name != value))
-				{
-					this._display_name = value;
-				}
-			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id", DbType="Int NOT NULL")]
@@ -1730,21 +1796,21 @@ namespace WebApplication1
 	public partial class SelectCourseOfferedWithSemesterResult
 	{
 		
-		private string _display_name;
+		private string _Column1;
+		
+		private int _co_id;
 		
 		private int _c_id;
+		
+		private int _s_id;
+		
+		private int _c_id1;
 		
 		private string _c_code;
 		
 		private string _c_name;
 		
 		private System.Nullable<int> _c_credit;
-		
-		private int _co_id;
-		
-		private int _c_id1;
-		
-		private int _s_id;
 		
 		private int _s_id1;
 		
@@ -1756,18 +1822,34 @@ namespace WebApplication1
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(266)")]
-		public string display_name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="VarChar(266)")]
+		public string Column1
 		{
 			get
 			{
-				return this._display_name;
+				return this._Column1;
 			}
 			set
 			{
-				if ((this._display_name != value))
+				if ((this._Column1 != value))
 				{
-					this._display_name = value;
+					this._Column1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id", DbType="Int NOT NULL")]
+		public int co_id
+		{
+			get
+			{
+				return this._co_id;
+			}
+			set
+			{
+				if ((this._co_id != value))
+				{
+					this._co_id = value;
 				}
 			}
 		}
@@ -1784,6 +1866,38 @@ namespace WebApplication1
 				if ((this._c_id != value))
 				{
 					this._c_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id", DbType="Int NOT NULL")]
+		public int s_id
+		{
+			get
+			{
+				return this._s_id;
+			}
+			set
+			{
+				if ((this._s_id != value))
+				{
+					this._s_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id1", DbType="Int NOT NULL")]
+		public int c_id1
+		{
+			get
+			{
+				return this._c_id1;
+			}
+			set
+			{
+				if ((this._c_id1 != value))
+				{
+					this._c_id1 = value;
 				}
 			}
 		}
@@ -1832,54 +1946,6 @@ namespace WebApplication1
 				if ((this._c_credit != value))
 				{
 					this._c_credit = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id", DbType="Int NOT NULL")]
-		public int co_id
-		{
-			get
-			{
-				return this._co_id;
-			}
-			set
-			{
-				if ((this._co_id != value))
-				{
-					this._co_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id1", DbType="Int NOT NULL")]
-		public int c_id1
-		{
-			get
-			{
-				return this._c_id1;
-			}
-			set
-			{
-				if ((this._c_id1 != value))
-				{
-					this._c_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id", DbType="Int NOT NULL")]
-		public int s_id
-		{
-			get
-			{
-				return this._s_id;
-			}
-			set
-			{
-				if ((this._s_id != value))
-				{
-					this._s_id = value;
 				}
 			}
 		}
@@ -1936,8 +2002,6 @@ namespace WebApplication1
 	public partial class SelectSectionResult
 	{
 		
-		private string _display_name;
-		
 		private int _sec_id;
 		
 		private int _co_id;
@@ -1976,22 +2040,6 @@ namespace WebApplication1
 		
 		public SelectSectionResult()
 		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(277)")]
-		public string display_name
-		{
-			get
-			{
-				return this._display_name;
-			}
-			set
-			{
-				if ((this._display_name != value))
-				{
-					this._display_name = value;
-				}
-			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_id", DbType="Int NOT NULL")]
@@ -2328,7 +2376,7 @@ namespace WebApplication1
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(277)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(266)")]
 		public string display_name
 		{
 			get
@@ -2638,8 +2686,6 @@ namespace WebApplication1
 		
 		private string _taken;
 		
-		private string _display_name;
-		
 		private int _sec_id;
 		
 		private int _co_id;
@@ -2696,7 +2742,341 @@ namespace WebApplication1
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(277)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_id", DbType="Int NOT NULL")]
+		public int sec_id
+		{
+			get
+			{
+				return this._sec_id;
+			}
+			set
+			{
+				if ((this._sec_id != value))
+				{
+					this._sec_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id", DbType="Int NOT NULL")]
+		public int co_id
+		{
+			get
+			{
+				return this._co_id;
+			}
+			set
+			{
+				if ((this._co_id != value))
+				{
+					this._co_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_no", DbType="Int NOT NULL")]
+		public int sec_no
+		{
+			get
+			{
+				return this._sec_no;
+			}
+			set
+			{
+				if ((this._sec_no != value))
+				{
+					this._sec_no = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		public string u_name
+		{
+			get
+			{
+				return this._u_name;
+			}
+			set
+			{
+				if ((this._u_name != value))
+				{
+					this._u_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id1", DbType="Int NOT NULL")]
+		public int co_id1
+		{
+			get
+			{
+				return this._co_id1;
+			}
+			set
+			{
+				if ((this._co_id1 != value))
+				{
+					this._co_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id", DbType="Int NOT NULL")]
+		public int c_id
+		{
+			get
+			{
+				return this._c_id;
+			}
+			set
+			{
+				if ((this._c_id != value))
+				{
+					this._c_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id", DbType="Int NOT NULL")]
+		public int s_id
+		{
+			get
+			{
+				return this._s_id;
+			}
+			set
+			{
+				if ((this._s_id != value))
+				{
+					this._s_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id1", DbType="Int NOT NULL")]
+		public int c_id1
+		{
+			get
+			{
+				return this._c_id1;
+			}
+			set
+			{
+				if ((this._c_id1 != value))
+				{
+					this._c_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_code", DbType="VarChar(10)")]
+		public string c_code
+		{
+			get
+			{
+				return this._c_code;
+			}
+			set
+			{
+				if ((this._c_code != value))
+				{
+					this._c_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_name", DbType="VarChar(255)")]
+		public string c_name
+		{
+			get
+			{
+				return this._c_name;
+			}
+			set
+			{
+				if ((this._c_name != value))
+				{
+					this._c_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_credit", DbType="Int")]
+		public System.Nullable<int> c_credit
+		{
+			get
+			{
+				return this._c_credit;
+			}
+			set
+			{
+				if ((this._c_credit != value))
+				{
+					this._c_credit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id1", DbType="Int NOT NULL")]
+		public int s_id1
+		{
+			get
+			{
+				return this._s_id1;
+			}
+			set
+			{
+				if ((this._s_id1 != value))
+				{
+					this._s_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_year", DbType="VarChar(10)")]
+		public string s_year
+		{
+			get
+			{
+				return this._s_year;
+			}
+			set
+			{
+				if ((this._s_year != value))
+				{
+					this._s_year = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_sem", DbType="Int")]
+		public System.Nullable<int> s_sem
+		{
+			get
+			{
+				return this._s_sem;
+			}
+			set
+			{
+				if ((this._s_sem != value))
+				{
+					this._s_sem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name1", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		public string u_name1
+		{
+			get
+			{
+				return this._u_name1;
+			}
+			set
+			{
+				if ((this._u_name1 != value))
+				{
+					this._u_name1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string p_name
+		{
+			get
+			{
+				return this._p_name;
+			}
+			set
+			{
+				if ((this._p_name != value))
+				{
+					this._p_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_phone_no", DbType="VarChar(15)")]
+		public string p_phone_no
+		{
+			get
+			{
+				return this._p_phone_no;
+			}
+			set
+			{
+				if ((this._p_phone_no != value))
+				{
+					this._p_phone_no = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_email", DbType="VarChar(255)")]
+		public string p_email
+		{
+			get
+			{
+				return this._p_email;
+			}
+			set
+			{
+				if ((this._p_email != value))
+				{
+					this._p_email = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SelectSectionWithCourseOfferedOrSemesterOrLecturerResult
+	{
+		
+		private string _display_name;
+		
+		private int _sec_id;
+		
+		private int _co_id;
+		
+		private int _sec_no;
+		
+		private string _u_name;
+		
+		private int _co_id1;
+		
+		private int _c_id;
+		
+		private int _s_id;
+		
+		private int _c_id1;
+		
+		private string _c_code;
+		
+		private string _c_name;
+		
+		private System.Nullable<int> _c_credit;
+		
+		private int _s_id1;
+		
+		private string _s_year;
+		
+		private System.Nullable<int> _s_sem;
+		
+		private string _u_name1;
+		
+		private string _p_name;
+		
+		private string _p_phone_no;
+		
+		private string _p_email;
+		
+		public SelectSectionWithCourseOfferedOrSemesterOrLecturerResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(317)")]
 		public string display_name
 		{
 			get
@@ -3001,86 +3381,6 @@ namespace WebApplication1
 		}
 	}
 	
-	public partial class SelectSemesterResult
-	{
-		
-		private string _display_name;
-		
-		private int _s_id;
-		
-		private string _s_year;
-		
-		private System.Nullable<int> _s_sem;
-		
-		public SelectSemesterResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(21)")]
-		public string display_name
-		{
-			get
-			{
-				return this._display_name;
-			}
-			set
-			{
-				if ((this._display_name != value))
-				{
-					this._display_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id", DbType="Int NOT NULL")]
-		public int s_id
-		{
-			get
-			{
-				return this._s_id;
-			}
-			set
-			{
-				if ((this._s_id != value))
-				{
-					this._s_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_year", DbType="VarChar(10)")]
-		public string s_year
-		{
-			get
-			{
-				return this._s_year;
-			}
-			set
-			{
-				if ((this._s_year != value))
-				{
-					this._s_year = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_sem", DbType="Int")]
-		public System.Nullable<int> s_sem
-		{
-			get
-			{
-				return this._s_sem;
-			}
-			set
-			{
-				if ((this._s_sem != value))
-				{
-					this._s_sem = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SelectStudentMarkWithStudentIDResult
 	{
 		
@@ -3089,14 +3389,6 @@ namespace WebApplication1
 		private int _sm_id;
 		
 		private double _stum_score;
-		
-		private string _u_name1;
-		
-		private string _p_name;
-		
-		private string _p_phone_no;
-		
-		private string _p_email;
 		
 		private int _sm_id1;
 		
@@ -3114,7 +3406,7 @@ namespace WebApplication1
 		
 		private int _sec_no;
 		
-		private string _u_name2;
+		private string _u_name1;
 		
 		private int _co_id1;
 		
@@ -3129,6 +3421,20 @@ namespace WebApplication1
 		private string _c_name;
 		
 		private System.Nullable<int> _c_credit;
+		
+		private int _s_id1;
+		
+		private string _s_year;
+		
+		private System.Nullable<int> _s_sem;
+		
+		private string _u_name2;
+		
+		private string _p_name;
+		
+		private string _p_phone_no;
+		
+		private string _p_email;
 		
 		public SelectStudentMarkWithStudentIDResult()
 		{
@@ -3178,70 +3484,6 @@ namespace WebApplication1
 				if ((this._stum_score != value))
 				{
 					this._stum_score = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name1", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name1
-		{
-			get
-			{
-				return this._u_name1;
-			}
-			set
-			{
-				if ((this._u_name1 != value))
-				{
-					this._u_name1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string p_name
-		{
-			get
-			{
-				return this._p_name;
-			}
-			set
-			{
-				if ((this._p_name != value))
-				{
-					this._p_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_phone_no", DbType="VarChar(15)")]
-		public string p_phone_no
-		{
-			get
-			{
-				return this._p_phone_no;
-			}
-			set
-			{
-				if ((this._p_phone_no != value))
-				{
-					this._p_phone_no = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_email", DbType="VarChar(255)")]
-		public string p_email
-		{
-			get
-			{
-				return this._p_email;
-			}
-			set
-			{
-				if ((this._p_email != value))
-				{
-					this._p_email = value;
 				}
 			}
 		}
@@ -3374,18 +3616,18 @@ namespace WebApplication1
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name2", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name2
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name1", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		public string u_name1
 		{
 			get
 			{
-				return this._u_name2;
+				return this._u_name1;
 			}
 			set
 			{
-				if ((this._u_name2 != value))
+				if ((this._u_name1 != value))
 				{
-					this._u_name2 = value;
+					this._u_name1 = value;
 				}
 			}
 		}
@@ -3501,6 +3743,594 @@ namespace WebApplication1
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id1", DbType="Int NOT NULL")]
+		public int s_id1
+		{
+			get
+			{
+				return this._s_id1;
+			}
+			set
+			{
+				if ((this._s_id1 != value))
+				{
+					this._s_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_year", DbType="VarChar(10)")]
+		public string s_year
+		{
+			get
+			{
+				return this._s_year;
+			}
+			set
+			{
+				if ((this._s_year != value))
+				{
+					this._s_year = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_sem", DbType="Int")]
+		public System.Nullable<int> s_sem
+		{
+			get
+			{
+				return this._s_sem;
+			}
+			set
+			{
+				if ((this._s_sem != value))
+				{
+					this._s_sem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name2", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		public string u_name2
+		{
+			get
+			{
+				return this._u_name2;
+			}
+			set
+			{
+				if ((this._u_name2 != value))
+				{
+					this._u_name2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string p_name
+		{
+			get
+			{
+				return this._p_name;
+			}
+			set
+			{
+				if ((this._p_name != value))
+				{
+					this._p_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_phone_no", DbType="VarChar(15)")]
+		public string p_phone_no
+		{
+			get
+			{
+				return this._p_phone_no;
+			}
+			set
+			{
+				if ((this._p_phone_no != value))
+				{
+					this._p_phone_no = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_email", DbType="VarChar(255)")]
+		public string p_email
+		{
+			get
+			{
+				return this._p_email;
+			}
+			set
+			{
+				if ((this._p_email != value))
+				{
+					this._p_email = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SelectStudentMarkWithStudentIDAndSemesterResult
+	{
+		
+		private string _u_name;
+		
+		private int _sm_id;
+		
+		private double _stum_score;
+		
+		private int _sm_id1;
+		
+		private int _sec_id;
+		
+		private string _sm_item;
+		
+		private double _sm_total;
+		
+		private double _sm_percentage;
+		
+		private int _sec_id1;
+		
+		private int _co_id;
+		
+		private int _sec_no;
+		
+		private string _u_name1;
+		
+		private int _co_id1;
+		
+		private int _c_id;
+		
+		private int _s_id;
+		
+		private int _c_id1;
+		
+		private string _c_code;
+		
+		private string _c_name;
+		
+		private System.Nullable<int> _c_credit;
+		
+		private int _s_id1;
+		
+		private string _s_year;
+		
+		private System.Nullable<int> _s_sem;
+		
+		private string _u_name2;
+		
+		private string _p_name;
+		
+		private string _p_phone_no;
+		
+		private string _p_email;
+		
+		public SelectStudentMarkWithStudentIDAndSemesterResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		public string u_name
+		{
+			get
+			{
+				return this._u_name;
+			}
+			set
+			{
+				if ((this._u_name != value))
+				{
+					this._u_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_id", DbType="Int NOT NULL")]
+		public int sm_id
+		{
+			get
+			{
+				return this._sm_id;
+			}
+			set
+			{
+				if ((this._sm_id != value))
+				{
+					this._sm_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stum_score", DbType="Float NOT NULL")]
+		public double stum_score
+		{
+			get
+			{
+				return this._stum_score;
+			}
+			set
+			{
+				if ((this._stum_score != value))
+				{
+					this._stum_score = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_id1", DbType="Int NOT NULL")]
+		public int sm_id1
+		{
+			get
+			{
+				return this._sm_id1;
+			}
+			set
+			{
+				if ((this._sm_id1 != value))
+				{
+					this._sm_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_id", DbType="Int NOT NULL")]
+		public int sec_id
+		{
+			get
+			{
+				return this._sec_id;
+			}
+			set
+			{
+				if ((this._sec_id != value))
+				{
+					this._sec_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_item", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string sm_item
+		{
+			get
+			{
+				return this._sm_item;
+			}
+			set
+			{
+				if ((this._sm_item != value))
+				{
+					this._sm_item = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_total", DbType="Float NOT NULL")]
+		public double sm_total
+		{
+			get
+			{
+				return this._sm_total;
+			}
+			set
+			{
+				if ((this._sm_total != value))
+				{
+					this._sm_total = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_percentage", DbType="Float NOT NULL")]
+		public double sm_percentage
+		{
+			get
+			{
+				return this._sm_percentage;
+			}
+			set
+			{
+				if ((this._sm_percentage != value))
+				{
+					this._sm_percentage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_id1", DbType="Int NOT NULL")]
+		public int sec_id1
+		{
+			get
+			{
+				return this._sec_id1;
+			}
+			set
+			{
+				if ((this._sec_id1 != value))
+				{
+					this._sec_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id", DbType="Int NOT NULL")]
+		public int co_id
+		{
+			get
+			{
+				return this._co_id;
+			}
+			set
+			{
+				if ((this._co_id != value))
+				{
+					this._co_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_no", DbType="Int NOT NULL")]
+		public int sec_no
+		{
+			get
+			{
+				return this._sec_no;
+			}
+			set
+			{
+				if ((this._sec_no != value))
+				{
+					this._sec_no = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name1", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		public string u_name1
+		{
+			get
+			{
+				return this._u_name1;
+			}
+			set
+			{
+				if ((this._u_name1 != value))
+				{
+					this._u_name1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id1", DbType="Int NOT NULL")]
+		public int co_id1
+		{
+			get
+			{
+				return this._co_id1;
+			}
+			set
+			{
+				if ((this._co_id1 != value))
+				{
+					this._co_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id", DbType="Int NOT NULL")]
+		public int c_id
+		{
+			get
+			{
+				return this._c_id;
+			}
+			set
+			{
+				if ((this._c_id != value))
+				{
+					this._c_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id", DbType="Int NOT NULL")]
+		public int s_id
+		{
+			get
+			{
+				return this._s_id;
+			}
+			set
+			{
+				if ((this._s_id != value))
+				{
+					this._s_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id1", DbType="Int NOT NULL")]
+		public int c_id1
+		{
+			get
+			{
+				return this._c_id1;
+			}
+			set
+			{
+				if ((this._c_id1 != value))
+				{
+					this._c_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_code", DbType="VarChar(10)")]
+		public string c_code
+		{
+			get
+			{
+				return this._c_code;
+			}
+			set
+			{
+				if ((this._c_code != value))
+				{
+					this._c_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_name", DbType="VarChar(255)")]
+		public string c_name
+		{
+			get
+			{
+				return this._c_name;
+			}
+			set
+			{
+				if ((this._c_name != value))
+				{
+					this._c_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_credit", DbType="Int")]
+		public System.Nullable<int> c_credit
+		{
+			get
+			{
+				return this._c_credit;
+			}
+			set
+			{
+				if ((this._c_credit != value))
+				{
+					this._c_credit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id1", DbType="Int NOT NULL")]
+		public int s_id1
+		{
+			get
+			{
+				return this._s_id1;
+			}
+			set
+			{
+				if ((this._s_id1 != value))
+				{
+					this._s_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_year", DbType="VarChar(10)")]
+		public string s_year
+		{
+			get
+			{
+				return this._s_year;
+			}
+			set
+			{
+				if ((this._s_year != value))
+				{
+					this._s_year = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_sem", DbType="Int")]
+		public System.Nullable<int> s_sem
+		{
+			get
+			{
+				return this._s_sem;
+			}
+			set
+			{
+				if ((this._s_sem != value))
+				{
+					this._s_sem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name2", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		public string u_name2
+		{
+			get
+			{
+				return this._u_name2;
+			}
+			set
+			{
+				if ((this._u_name2 != value))
+				{
+					this._u_name2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string p_name
+		{
+			get
+			{
+				return this._p_name;
+			}
+			set
+			{
+				if ((this._p_name != value))
+				{
+					this._p_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_phone_no", DbType="VarChar(15)")]
+		public string p_phone_no
+		{
+			get
+			{
+				return this._p_phone_no;
+			}
+			set
+			{
+				if ((this._p_phone_no != value))
+				{
+					this._p_phone_no = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_email", DbType="VarChar(255)")]
+		public string p_email
+		{
+			get
+			{
+				return this._p_email;
+			}
+			set
+			{
+				if ((this._p_email != value))
+				{
+					this._p_email = value;
+				}
+			}
+		}
 	}
 	
 	public partial class SelectUserWithLecturerResult
@@ -3526,7 +4356,7 @@ namespace WebApplication1
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
 		public string display_name
 		{
 			get
@@ -3655,159 +4485,33 @@ namespace WebApplication1
 		}
 	}
 	
-	public partial class SelectSectionWithCourseOfferedOrSemesterOrLecturerResult
+	public partial class SelectSemesterResult
 	{
 		
-		private string _display_name;
-		
-		private int _sec_id;
-		
-		private int _co_id;
-		
-		private int _sec_no;
-		
-		private string _u_name;
-		
-		private int _co_id1;
-		
-		private int _c_id;
+		private string _Column1;
 		
 		private int _s_id;
-		
-		private int _c_id1;
-		
-		private string _c_code;
-		
-		private string _c_name;
-		
-		private System.Nullable<int> _c_credit;
-		
-		private int _s_id1;
 		
 		private string _s_year;
 		
 		private System.Nullable<int> _s_sem;
 		
-		private string _u_name1;
-		
-		private string _p_name;
-		
-		private string _p_phone_no;
-		
-		private string _p_email;
-		
-		public SelectSectionWithCourseOfferedOrSemesterOrLecturerResult()
+		public SelectSemesterResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(277)")]
-		public string display_name
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="VarChar(61)")]
+		public string Column1
 		{
 			get
 			{
-				return this._display_name;
+				return this._Column1;
 			}
 			set
 			{
-				if ((this._display_name != value))
+				if ((this._Column1 != value))
 				{
-					this._display_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_id", DbType="Int NOT NULL")]
-		public int sec_id
-		{
-			get
-			{
-				return this._sec_id;
-			}
-			set
-			{
-				if ((this._sec_id != value))
-				{
-					this._sec_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id", DbType="Int NOT NULL")]
-		public int co_id
-		{
-			get
-			{
-				return this._co_id;
-			}
-			set
-			{
-				if ((this._co_id != value))
-				{
-					this._co_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_no", DbType="Int NOT NULL")]
-		public int sec_no
-		{
-			get
-			{
-				return this._sec_no;
-			}
-			set
-			{
-				if ((this._sec_no != value))
-				{
-					this._sec_no = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name
-		{
-			get
-			{
-				return this._u_name;
-			}
-			set
-			{
-				if ((this._u_name != value))
-				{
-					this._u_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id1", DbType="Int NOT NULL")]
-		public int co_id1
-		{
-			get
-			{
-				return this._co_id1;
-			}
-			set
-			{
-				if ((this._co_id1 != value))
-				{
-					this._co_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id", DbType="Int NOT NULL")]
-		public int c_id
-		{
-			get
-			{
-				return this._c_id;
-			}
-			set
-			{
-				if ((this._c_id != value))
-				{
-					this._c_id = value;
+					this._Column1 = value;
 				}
 			}
 		}
@@ -3824,86 +4528,6 @@ namespace WebApplication1
 				if ((this._s_id != value))
 				{
 					this._s_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id1", DbType="Int NOT NULL")]
-		public int c_id1
-		{
-			get
-			{
-				return this._c_id1;
-			}
-			set
-			{
-				if ((this._c_id1 != value))
-				{
-					this._c_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_code", DbType="VarChar(10)")]
-		public string c_code
-		{
-			get
-			{
-				return this._c_code;
-			}
-			set
-			{
-				if ((this._c_code != value))
-				{
-					this._c_code = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_name", DbType="VarChar(255)")]
-		public string c_name
-		{
-			get
-			{
-				return this._c_name;
-			}
-			set
-			{
-				if ((this._c_name != value))
-				{
-					this._c_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_credit", DbType="Int")]
-		public System.Nullable<int> c_credit
-		{
-			get
-			{
-				return this._c_credit;
-			}
-			set
-			{
-				if ((this._c_credit != value))
-				{
-					this._c_credit = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id1", DbType="Int NOT NULL")]
-		public int s_id1
-		{
-			get
-			{
-				return this._s_id1;
-			}
-			set
-			{
-				if ((this._s_id1 != value))
-				{
-					this._s_id1 = value;
 				}
 			}
 		}
@@ -3936,1290 +4560,6 @@ namespace WebApplication1
 				if ((this._s_sem != value))
 				{
 					this._s_sem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name1", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name1
-		{
-			get
-			{
-				return this._u_name1;
-			}
-			set
-			{
-				if ((this._u_name1 != value))
-				{
-					this._u_name1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string p_name
-		{
-			get
-			{
-				return this._p_name;
-			}
-			set
-			{
-				if ((this._p_name != value))
-				{
-					this._p_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_phone_no", DbType="VarChar(15)")]
-		public string p_phone_no
-		{
-			get
-			{
-				return this._p_phone_no;
-			}
-			set
-			{
-				if ((this._p_phone_no != value))
-				{
-					this._p_phone_no = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_email", DbType="VarChar(255)")]
-		public string p_email
-		{
-			get
-			{
-				return this._p_email;
-			}
-			set
-			{
-				if ((this._p_email != value))
-				{
-					this._p_email = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SelectCourseResult
-	{
-		
-		private string _display_name;
-		
-		private int _c_id;
-		
-		private string _c_code;
-		
-		private string _c_name;
-		
-		private System.Nullable<int> _c_credit;
-		
-		public SelectCourseResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(266)")]
-		public string display_name
-		{
-			get
-			{
-				return this._display_name;
-			}
-			set
-			{
-				if ((this._display_name != value))
-				{
-					this._display_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id", DbType="Int NOT NULL")]
-		public int c_id
-		{
-			get
-			{
-				return this._c_id;
-			}
-			set
-			{
-				if ((this._c_id != value))
-				{
-					this._c_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_code", DbType="VarChar(10)")]
-		public string c_code
-		{
-			get
-			{
-				return this._c_code;
-			}
-			set
-			{
-				if ((this._c_code != value))
-				{
-					this._c_code = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_name", DbType="VarChar(255)")]
-		public string c_name
-		{
-			get
-			{
-				return this._c_name;
-			}
-			set
-			{
-				if ((this._c_name != value))
-				{
-					this._c_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_credit", DbType="Int")]
-		public System.Nullable<int> c_credit
-		{
-			get
-			{
-				return this._c_credit;
-			}
-			set
-			{
-				if ((this._c_credit != value))
-				{
-					this._c_credit = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SelectStudentMarkWithStudentIDAndSemesterResult
-	{
-		
-		private string _u_name;
-		
-		private int _sm_id;
-		
-		private double _stum_score;
-		
-		private string _u_name1;
-		
-		private string _p_name;
-		
-		private string _p_phone_no;
-		
-		private string _p_email;
-		
-		private int _sm_id1;
-		
-		private int _sec_id;
-		
-		private string _sm_item;
-		
-		private double _sm_total;
-		
-		private double _sm_percentage;
-		
-		private int _sec_id1;
-		
-		private int _co_id;
-		
-		private int _sec_no;
-		
-		private string _u_name2;
-		
-		private int _co_id1;
-		
-		private int _c_id;
-		
-		private int _s_id;
-		
-		private int _c_id1;
-		
-		private string _c_code;
-		
-		private string _c_name;
-		
-		private System.Nullable<int> _c_credit;
-		
-		public SelectStudentMarkWithStudentIDAndSemesterResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name
-		{
-			get
-			{
-				return this._u_name;
-			}
-			set
-			{
-				if ((this._u_name != value))
-				{
-					this._u_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_id", DbType="Int NOT NULL")]
-		public int sm_id
-		{
-			get
-			{
-				return this._sm_id;
-			}
-			set
-			{
-				if ((this._sm_id != value))
-				{
-					this._sm_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stum_score", DbType="Float NOT NULL")]
-		public double stum_score
-		{
-			get
-			{
-				return this._stum_score;
-			}
-			set
-			{
-				if ((this._stum_score != value))
-				{
-					this._stum_score = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name1", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name1
-		{
-			get
-			{
-				return this._u_name1;
-			}
-			set
-			{
-				if ((this._u_name1 != value))
-				{
-					this._u_name1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string p_name
-		{
-			get
-			{
-				return this._p_name;
-			}
-			set
-			{
-				if ((this._p_name != value))
-				{
-					this._p_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_phone_no", DbType="VarChar(15)")]
-		public string p_phone_no
-		{
-			get
-			{
-				return this._p_phone_no;
-			}
-			set
-			{
-				if ((this._p_phone_no != value))
-				{
-					this._p_phone_no = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_email", DbType="VarChar(255)")]
-		public string p_email
-		{
-			get
-			{
-				return this._p_email;
-			}
-			set
-			{
-				if ((this._p_email != value))
-				{
-					this._p_email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_id1", DbType="Int NOT NULL")]
-		public int sm_id1
-		{
-			get
-			{
-				return this._sm_id1;
-			}
-			set
-			{
-				if ((this._sm_id1 != value))
-				{
-					this._sm_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_id", DbType="Int NOT NULL")]
-		public int sec_id
-		{
-			get
-			{
-				return this._sec_id;
-			}
-			set
-			{
-				if ((this._sec_id != value))
-				{
-					this._sec_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_item", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string sm_item
-		{
-			get
-			{
-				return this._sm_item;
-			}
-			set
-			{
-				if ((this._sm_item != value))
-				{
-					this._sm_item = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_total", DbType="Float NOT NULL")]
-		public double sm_total
-		{
-			get
-			{
-				return this._sm_total;
-			}
-			set
-			{
-				if ((this._sm_total != value))
-				{
-					this._sm_total = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_percentage", DbType="Float NOT NULL")]
-		public double sm_percentage
-		{
-			get
-			{
-				return this._sm_percentage;
-			}
-			set
-			{
-				if ((this._sm_percentage != value))
-				{
-					this._sm_percentage = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_id1", DbType="Int NOT NULL")]
-		public int sec_id1
-		{
-			get
-			{
-				return this._sec_id1;
-			}
-			set
-			{
-				if ((this._sec_id1 != value))
-				{
-					this._sec_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id", DbType="Int NOT NULL")]
-		public int co_id
-		{
-			get
-			{
-				return this._co_id;
-			}
-			set
-			{
-				if ((this._co_id != value))
-				{
-					this._co_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_no", DbType="Int NOT NULL")]
-		public int sec_no
-		{
-			get
-			{
-				return this._sec_no;
-			}
-			set
-			{
-				if ((this._sec_no != value))
-				{
-					this._sec_no = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name2", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name2
-		{
-			get
-			{
-				return this._u_name2;
-			}
-			set
-			{
-				if ((this._u_name2 != value))
-				{
-					this._u_name2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id1", DbType="Int NOT NULL")]
-		public int co_id1
-		{
-			get
-			{
-				return this._co_id1;
-			}
-			set
-			{
-				if ((this._co_id1 != value))
-				{
-					this._co_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id", DbType="Int NOT NULL")]
-		public int c_id
-		{
-			get
-			{
-				return this._c_id;
-			}
-			set
-			{
-				if ((this._c_id != value))
-				{
-					this._c_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id", DbType="Int NOT NULL")]
-		public int s_id
-		{
-			get
-			{
-				return this._s_id;
-			}
-			set
-			{
-				if ((this._s_id != value))
-				{
-					this._s_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id1", DbType="Int NOT NULL")]
-		public int c_id1
-		{
-			get
-			{
-				return this._c_id1;
-			}
-			set
-			{
-				if ((this._c_id1 != value))
-				{
-					this._c_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_code", DbType="VarChar(10)")]
-		public string c_code
-		{
-			get
-			{
-				return this._c_code;
-			}
-			set
-			{
-				if ((this._c_code != value))
-				{
-					this._c_code = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_name", DbType="VarChar(255)")]
-		public string c_name
-		{
-			get
-			{
-				return this._c_name;
-			}
-			set
-			{
-				if ((this._c_name != value))
-				{
-					this._c_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_credit", DbType="Int")]
-		public System.Nullable<int> c_credit
-		{
-			get
-			{
-				return this._c_credit;
-			}
-			set
-			{
-				if ((this._c_credit != value))
-				{
-					this._c_credit = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SelectSectionWithStudentIDResult
-	{
-		
-		private string _display_name;
-		
-		private int _sec_id;
-		
-		private int _co_id;
-		
-		private int _sec_no;
-		
-		private string _u_name;
-		
-		private int _co_id1;
-		
-		private int _c_id;
-		
-		private int _s_id;
-		
-		private int _c_id1;
-		
-		private string _c_code;
-		
-		private string _c_name;
-		
-		private System.Nullable<int> _c_credit;
-		
-		private int _s_id1;
-		
-		private string _s_year;
-		
-		private System.Nullable<int> _s_sem;
-		
-		private string _u_name1;
-		
-		private string _p_name;
-		
-		private string _p_phone_no;
-		
-		private string _p_email;
-		
-		public SelectSectionWithStudentIDResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(277)")]
-		public string display_name
-		{
-			get
-			{
-				return this._display_name;
-			}
-			set
-			{
-				if ((this._display_name != value))
-				{
-					this._display_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_id", DbType="Int NOT NULL")]
-		public int sec_id
-		{
-			get
-			{
-				return this._sec_id;
-			}
-			set
-			{
-				if ((this._sec_id != value))
-				{
-					this._sec_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id", DbType="Int NOT NULL")]
-		public int co_id
-		{
-			get
-			{
-				return this._co_id;
-			}
-			set
-			{
-				if ((this._co_id != value))
-				{
-					this._co_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_no", DbType="Int NOT NULL")]
-		public int sec_no
-		{
-			get
-			{
-				return this._sec_no;
-			}
-			set
-			{
-				if ((this._sec_no != value))
-				{
-					this._sec_no = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name
-		{
-			get
-			{
-				return this._u_name;
-			}
-			set
-			{
-				if ((this._u_name != value))
-				{
-					this._u_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id1", DbType="Int NOT NULL")]
-		public int co_id1
-		{
-			get
-			{
-				return this._co_id1;
-			}
-			set
-			{
-				if ((this._co_id1 != value))
-				{
-					this._co_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id", DbType="Int NOT NULL")]
-		public int c_id
-		{
-			get
-			{
-				return this._c_id;
-			}
-			set
-			{
-				if ((this._c_id != value))
-				{
-					this._c_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id", DbType="Int NOT NULL")]
-		public int s_id
-		{
-			get
-			{
-				return this._s_id;
-			}
-			set
-			{
-				if ((this._s_id != value))
-				{
-					this._s_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id1", DbType="Int NOT NULL")]
-		public int c_id1
-		{
-			get
-			{
-				return this._c_id1;
-			}
-			set
-			{
-				if ((this._c_id1 != value))
-				{
-					this._c_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_code", DbType="VarChar(10)")]
-		public string c_code
-		{
-			get
-			{
-				return this._c_code;
-			}
-			set
-			{
-				if ((this._c_code != value))
-				{
-					this._c_code = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_name", DbType="VarChar(255)")]
-		public string c_name
-		{
-			get
-			{
-				return this._c_name;
-			}
-			set
-			{
-				if ((this._c_name != value))
-				{
-					this._c_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_credit", DbType="Int")]
-		public System.Nullable<int> c_credit
-		{
-			get
-			{
-				return this._c_credit;
-			}
-			set
-			{
-				if ((this._c_credit != value))
-				{
-					this._c_credit = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id1", DbType="Int NOT NULL")]
-		public int s_id1
-		{
-			get
-			{
-				return this._s_id1;
-			}
-			set
-			{
-				if ((this._s_id1 != value))
-				{
-					this._s_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_year", DbType="VarChar(10)")]
-		public string s_year
-		{
-			get
-			{
-				return this._s_year;
-			}
-			set
-			{
-				if ((this._s_year != value))
-				{
-					this._s_year = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_sem", DbType="Int")]
-		public System.Nullable<int> s_sem
-		{
-			get
-			{
-				return this._s_sem;
-			}
-			set
-			{
-				if ((this._s_sem != value))
-				{
-					this._s_sem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name1", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name1
-		{
-			get
-			{
-				return this._u_name1;
-			}
-			set
-			{
-				if ((this._u_name1 != value))
-				{
-					this._u_name1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string p_name
-		{
-			get
-			{
-				return this._p_name;
-			}
-			set
-			{
-				if ((this._p_name != value))
-				{
-					this._p_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_phone_no", DbType="VarChar(15)")]
-		public string p_phone_no
-		{
-			get
-			{
-				return this._p_phone_no;
-			}
-			set
-			{
-				if ((this._p_phone_no != value))
-				{
-					this._p_phone_no = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_email", DbType="VarChar(255)")]
-		public string p_email
-		{
-			get
-			{
-				return this._p_email;
-			}
-			set
-			{
-				if ((this._p_email != value))
-				{
-					this._p_email = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SelectSectionWithStudentIDAndSemesterIDResult
-	{
-		
-		private string _display_name;
-		
-		private int _sec_id;
-		
-		private int _co_id;
-		
-		private int _sec_no;
-		
-		private string _u_name;
-		
-		private int _co_id1;
-		
-		private int _c_id;
-		
-		private int _s_id;
-		
-		private int _c_id1;
-		
-		private string _c_code;
-		
-		private string _c_name;
-		
-		private System.Nullable<int> _c_credit;
-		
-		private int _s_id1;
-		
-		private string _s_year;
-		
-		private System.Nullable<int> _s_sem;
-		
-		private string _u_name1;
-		
-		private string _p_name;
-		
-		private string _p_phone_no;
-		
-		private string _p_email;
-		
-		public SelectSectionWithStudentIDAndSemesterIDResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_name", DbType="VarChar(277)")]
-		public string display_name
-		{
-			get
-			{
-				return this._display_name;
-			}
-			set
-			{
-				if ((this._display_name != value))
-				{
-					this._display_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_id", DbType="Int NOT NULL")]
-		public int sec_id
-		{
-			get
-			{
-				return this._sec_id;
-			}
-			set
-			{
-				if ((this._sec_id != value))
-				{
-					this._sec_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id", DbType="Int NOT NULL")]
-		public int co_id
-		{
-			get
-			{
-				return this._co_id;
-			}
-			set
-			{
-				if ((this._co_id != value))
-				{
-					this._co_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_no", DbType="Int NOT NULL")]
-		public int sec_no
-		{
-			get
-			{
-				return this._sec_no;
-			}
-			set
-			{
-				if ((this._sec_no != value))
-				{
-					this._sec_no = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name
-		{
-			get
-			{
-				return this._u_name;
-			}
-			set
-			{
-				if ((this._u_name != value))
-				{
-					this._u_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id1", DbType="Int NOT NULL")]
-		public int co_id1
-		{
-			get
-			{
-				return this._co_id1;
-			}
-			set
-			{
-				if ((this._co_id1 != value))
-				{
-					this._co_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id", DbType="Int NOT NULL")]
-		public int c_id
-		{
-			get
-			{
-				return this._c_id;
-			}
-			set
-			{
-				if ((this._c_id != value))
-				{
-					this._c_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id", DbType="Int NOT NULL")]
-		public int s_id
-		{
-			get
-			{
-				return this._s_id;
-			}
-			set
-			{
-				if ((this._s_id != value))
-				{
-					this._s_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id1", DbType="Int NOT NULL")]
-		public int c_id1
-		{
-			get
-			{
-				return this._c_id1;
-			}
-			set
-			{
-				if ((this._c_id1 != value))
-				{
-					this._c_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_code", DbType="VarChar(10)")]
-		public string c_code
-		{
-			get
-			{
-				return this._c_code;
-			}
-			set
-			{
-				if ((this._c_code != value))
-				{
-					this._c_code = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_name", DbType="VarChar(255)")]
-		public string c_name
-		{
-			get
-			{
-				return this._c_name;
-			}
-			set
-			{
-				if ((this._c_name != value))
-				{
-					this._c_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_credit", DbType="Int")]
-		public System.Nullable<int> c_credit
-		{
-			get
-			{
-				return this._c_credit;
-			}
-			set
-			{
-				if ((this._c_credit != value))
-				{
-					this._c_credit = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id1", DbType="Int NOT NULL")]
-		public int s_id1
-		{
-			get
-			{
-				return this._s_id1;
-			}
-			set
-			{
-				if ((this._s_id1 != value))
-				{
-					this._s_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_year", DbType="VarChar(10)")]
-		public string s_year
-		{
-			get
-			{
-				return this._s_year;
-			}
-			set
-			{
-				if ((this._s_year != value))
-				{
-					this._s_year = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_sem", DbType="Int")]
-		public System.Nullable<int> s_sem
-		{
-			get
-			{
-				return this._s_sem;
-			}
-			set
-			{
-				if ((this._s_sem != value))
-				{
-					this._s_sem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name1", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name1
-		{
-			get
-			{
-				return this._u_name1;
-			}
-			set
-			{
-				if ((this._u_name1 != value))
-				{
-					this._u_name1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string p_name
-		{
-			get
-			{
-				return this._p_name;
-			}
-			set
-			{
-				if ((this._p_name != value))
-				{
-					this._p_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_phone_no", DbType="VarChar(15)")]
-		public string p_phone_no
-		{
-			get
-			{
-				return this._p_phone_no;
-			}
-			set
-			{
-				if ((this._p_phone_no != value))
-				{
-					this._p_phone_no = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_email", DbType="VarChar(255)")]
-		public string p_email
-		{
-			get
-			{
-				return this._p_email;
-			}
-			set
-			{
-				if ((this._p_email != value))
-				{
-					this._p_email = value;
 				}
 			}
 		}
@@ -5228,19 +4568,13 @@ namespace WebApplication1
 	public partial class SelectStudentMarkWithStudentIDAndSemesterAndSectionResult
 	{
 		
+		private System.Nullable<double> _total_percentage;
+		
 		private string _u_name;
 		
 		private int _sm_id;
 		
 		private double _stum_score;
-		
-		private string _u_name1;
-		
-		private string _p_name;
-		
-		private string _p_phone_no;
-		
-		private string _p_email;
 		
 		private int _sm_id1;
 		
@@ -5258,7 +4592,7 @@ namespace WebApplication1
 		
 		private int _sec_no;
 		
-		private string _u_name2;
+		private string _u_name1;
 		
 		private int _co_id1;
 		
@@ -5274,378 +4608,22 @@ namespace WebApplication1
 		
 		private System.Nullable<int> _c_credit;
 		
-		private System.Nullable<double> _total_percentage;
+		private int _s_id1;
+		
+		private string _s_year;
+		
+		private System.Nullable<int> _s_sem;
+		
+		private string _u_name2;
+		
+		private string _p_name;
+		
+		private string _p_phone_no;
+		
+		private string _p_email;
 		
 		public SelectStudentMarkWithStudentIDAndSemesterAndSectionResult()
 		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name
-		{
-			get
-			{
-				return this._u_name;
-			}
-			set
-			{
-				if ((this._u_name != value))
-				{
-					this._u_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_id", DbType="Int NOT NULL")]
-		public int sm_id
-		{
-			get
-			{
-				return this._sm_id;
-			}
-			set
-			{
-				if ((this._sm_id != value))
-				{
-					this._sm_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stum_score", DbType="Float NOT NULL")]
-		public double stum_score
-		{
-			get
-			{
-				return this._stum_score;
-			}
-			set
-			{
-				if ((this._stum_score != value))
-				{
-					this._stum_score = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name1", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name1
-		{
-			get
-			{
-				return this._u_name1;
-			}
-			set
-			{
-				if ((this._u_name1 != value))
-				{
-					this._u_name1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string p_name
-		{
-			get
-			{
-				return this._p_name;
-			}
-			set
-			{
-				if ((this._p_name != value))
-				{
-					this._p_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_phone_no", DbType="VarChar(15)")]
-		public string p_phone_no
-		{
-			get
-			{
-				return this._p_phone_no;
-			}
-			set
-			{
-				if ((this._p_phone_no != value))
-				{
-					this._p_phone_no = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_email", DbType="VarChar(255)")]
-		public string p_email
-		{
-			get
-			{
-				return this._p_email;
-			}
-			set
-			{
-				if ((this._p_email != value))
-				{
-					this._p_email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_id1", DbType="Int NOT NULL")]
-		public int sm_id1
-		{
-			get
-			{
-				return this._sm_id1;
-			}
-			set
-			{
-				if ((this._sm_id1 != value))
-				{
-					this._sm_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_id", DbType="Int NOT NULL")]
-		public int sec_id
-		{
-			get
-			{
-				return this._sec_id;
-			}
-			set
-			{
-				if ((this._sec_id != value))
-				{
-					this._sec_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_item", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string sm_item
-		{
-			get
-			{
-				return this._sm_item;
-			}
-			set
-			{
-				if ((this._sm_item != value))
-				{
-					this._sm_item = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_total", DbType="Float NOT NULL")]
-		public double sm_total
-		{
-			get
-			{
-				return this._sm_total;
-			}
-			set
-			{
-				if ((this._sm_total != value))
-				{
-					this._sm_total = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_percentage", DbType="Float NOT NULL")]
-		public double sm_percentage
-		{
-			get
-			{
-				return this._sm_percentage;
-			}
-			set
-			{
-				if ((this._sm_percentage != value))
-				{
-					this._sm_percentage = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_id1", DbType="Int NOT NULL")]
-		public int sec_id1
-		{
-			get
-			{
-				return this._sec_id1;
-			}
-			set
-			{
-				if ((this._sec_id1 != value))
-				{
-					this._sec_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id", DbType="Int NOT NULL")]
-		public int co_id
-		{
-			get
-			{
-				return this._co_id;
-			}
-			set
-			{
-				if ((this._co_id != value))
-				{
-					this._co_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_no", DbType="Int NOT NULL")]
-		public int sec_no
-		{
-			get
-			{
-				return this._sec_no;
-			}
-			set
-			{
-				if ((this._sec_no != value))
-				{
-					this._sec_no = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name2", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
-		public string u_name2
-		{
-			get
-			{
-				return this._u_name2;
-			}
-			set
-			{
-				if ((this._u_name2 != value))
-				{
-					this._u_name2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id1", DbType="Int NOT NULL")]
-		public int co_id1
-		{
-			get
-			{
-				return this._co_id1;
-			}
-			set
-			{
-				if ((this._co_id1 != value))
-				{
-					this._co_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id", DbType="Int NOT NULL")]
-		public int c_id
-		{
-			get
-			{
-				return this._c_id;
-			}
-			set
-			{
-				if ((this._c_id != value))
-				{
-					this._c_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id", DbType="Int NOT NULL")]
-		public int s_id
-		{
-			get
-			{
-				return this._s_id;
-			}
-			set
-			{
-				if ((this._s_id != value))
-				{
-					this._s_id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id1", DbType="Int NOT NULL")]
-		public int c_id1
-		{
-			get
-			{
-				return this._c_id1;
-			}
-			set
-			{
-				if ((this._c_id1 != value))
-				{
-					this._c_id1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_code", DbType="VarChar(10)")]
-		public string c_code
-		{
-			get
-			{
-				return this._c_code;
-			}
-			set
-			{
-				if ((this._c_code != value))
-				{
-					this._c_code = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_name", DbType="VarChar(255)")]
-		public string c_name
-		{
-			get
-			{
-				return this._c_name;
-			}
-			set
-			{
-				if ((this._c_name != value))
-				{
-					this._c_name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_credit", DbType="Int")]
-		public System.Nullable<int> c_credit
-		{
-			get
-			{
-				return this._c_credit;
-			}
-			set
-			{
-				if ((this._c_credit != value))
-				{
-					this._c_credit = value;
-				}
-			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total_percentage", DbType="Float")]
@@ -5660,6 +4638,422 @@ namespace WebApplication1
 				if ((this._total_percentage != value))
 				{
 					this._total_percentage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		public string u_name
+		{
+			get
+			{
+				return this._u_name;
+			}
+			set
+			{
+				if ((this._u_name != value))
+				{
+					this._u_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_id", DbType="Int NOT NULL")]
+		public int sm_id
+		{
+			get
+			{
+				return this._sm_id;
+			}
+			set
+			{
+				if ((this._sm_id != value))
+				{
+					this._sm_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stum_score", DbType="Float NOT NULL")]
+		public double stum_score
+		{
+			get
+			{
+				return this._stum_score;
+			}
+			set
+			{
+				if ((this._stum_score != value))
+				{
+					this._stum_score = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_id1", DbType="Int NOT NULL")]
+		public int sm_id1
+		{
+			get
+			{
+				return this._sm_id1;
+			}
+			set
+			{
+				if ((this._sm_id1 != value))
+				{
+					this._sm_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_id", DbType="Int NOT NULL")]
+		public int sec_id
+		{
+			get
+			{
+				return this._sec_id;
+			}
+			set
+			{
+				if ((this._sec_id != value))
+				{
+					this._sec_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_item", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string sm_item
+		{
+			get
+			{
+				return this._sm_item;
+			}
+			set
+			{
+				if ((this._sm_item != value))
+				{
+					this._sm_item = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_total", DbType="Float NOT NULL")]
+		public double sm_total
+		{
+			get
+			{
+				return this._sm_total;
+			}
+			set
+			{
+				if ((this._sm_total != value))
+				{
+					this._sm_total = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sm_percentage", DbType="Float NOT NULL")]
+		public double sm_percentage
+		{
+			get
+			{
+				return this._sm_percentage;
+			}
+			set
+			{
+				if ((this._sm_percentage != value))
+				{
+					this._sm_percentage = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_id1", DbType="Int NOT NULL")]
+		public int sec_id1
+		{
+			get
+			{
+				return this._sec_id1;
+			}
+			set
+			{
+				if ((this._sec_id1 != value))
+				{
+					this._sec_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id", DbType="Int NOT NULL")]
+		public int co_id
+		{
+			get
+			{
+				return this._co_id;
+			}
+			set
+			{
+				if ((this._co_id != value))
+				{
+					this._co_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sec_no", DbType="Int NOT NULL")]
+		public int sec_no
+		{
+			get
+			{
+				return this._sec_no;
+			}
+			set
+			{
+				if ((this._sec_no != value))
+				{
+					this._sec_no = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name1", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		public string u_name1
+		{
+			get
+			{
+				return this._u_name1;
+			}
+			set
+			{
+				if ((this._u_name1 != value))
+				{
+					this._u_name1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_co_id1", DbType="Int NOT NULL")]
+		public int co_id1
+		{
+			get
+			{
+				return this._co_id1;
+			}
+			set
+			{
+				if ((this._co_id1 != value))
+				{
+					this._co_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id", DbType="Int NOT NULL")]
+		public int c_id
+		{
+			get
+			{
+				return this._c_id;
+			}
+			set
+			{
+				if ((this._c_id != value))
+				{
+					this._c_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id", DbType="Int NOT NULL")]
+		public int s_id
+		{
+			get
+			{
+				return this._s_id;
+			}
+			set
+			{
+				if ((this._s_id != value))
+				{
+					this._s_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_id1", DbType="Int NOT NULL")]
+		public int c_id1
+		{
+			get
+			{
+				return this._c_id1;
+			}
+			set
+			{
+				if ((this._c_id1 != value))
+				{
+					this._c_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_code", DbType="VarChar(10)")]
+		public string c_code
+		{
+			get
+			{
+				return this._c_code;
+			}
+			set
+			{
+				if ((this._c_code != value))
+				{
+					this._c_code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_name", DbType="VarChar(255)")]
+		public string c_name
+		{
+			get
+			{
+				return this._c_name;
+			}
+			set
+			{
+				if ((this._c_name != value))
+				{
+					this._c_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_c_credit", DbType="Int")]
+		public System.Nullable<int> c_credit
+		{
+			get
+			{
+				return this._c_credit;
+			}
+			set
+			{
+				if ((this._c_credit != value))
+				{
+					this._c_credit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id1", DbType="Int NOT NULL")]
+		public int s_id1
+		{
+			get
+			{
+				return this._s_id1;
+			}
+			set
+			{
+				if ((this._s_id1 != value))
+				{
+					this._s_id1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_year", DbType="VarChar(10)")]
+		public string s_year
+		{
+			get
+			{
+				return this._s_year;
+			}
+			set
+			{
+				if ((this._s_year != value))
+				{
+					this._s_year = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_sem", DbType="Int")]
+		public System.Nullable<int> s_sem
+		{
+			get
+			{
+				return this._s_sem;
+			}
+			set
+			{
+				if ((this._s_sem != value))
+				{
+					this._s_sem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_u_name2", DbType="VarChar(45) NOT NULL", CanBeNull=false)]
+		public string u_name2
+		{
+			get
+			{
+				return this._u_name2;
+			}
+			set
+			{
+				if ((this._u_name2 != value))
+				{
+					this._u_name2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string p_name
+		{
+			get
+			{
+				return this._p_name;
+			}
+			set
+			{
+				if ((this._p_name != value))
+				{
+					this._p_name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_phone_no", DbType="VarChar(15)")]
+		public string p_phone_no
+		{
+			get
+			{
+				return this._p_phone_no;
+			}
+			set
+			{
+				if ((this._p_phone_no != value))
+				{
+					this._p_phone_no = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_p_email", DbType="VarChar(255)")]
+		public string p_email
+		{
+			get
+			{
+				return this._p_email;
+			}
+			set
+			{
+				if ((this._p_email != value))
+				{
+					this._p_email = value;
 				}
 			}
 		}
