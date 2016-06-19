@@ -31,7 +31,7 @@
                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("s_sem")%>' />
                         </ItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="LinqDataSource2" DataTextField="name" DataValueField="s_id" CssClass="form-control">
+                            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="LinqDataSource2" DataTextField="name" DataValueField="s_id" CssClass="form-control" SelectedValue='<%# semester.SelectedValue %>'>
                             </asp:DropDownList>
                         </FooterTemplate>
                     </asp:TemplateField>

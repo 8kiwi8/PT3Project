@@ -20,6 +20,7 @@ namespace WebApplication1.AdminModule
         {
             int s_id = Int32.Parse(semester.SelectedValue);
             var courseOffered = campusweb.SelectCourseOfferedWithSemester(s_id);
+
             e.Result = courseOffered;
         }
 

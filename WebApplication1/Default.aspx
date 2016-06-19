@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebApplication1._Default" %>
 
-<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
-
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="container">
@@ -9,7 +7,7 @@
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
             <h1>
-                <img alt="" class="image" src="http://www.utm.my/wp-content/uploads/2016/06/ramadhan.jpg" title="ramadhan" /></h1>
+                <img alt="" class="img-responsive" src="http://www.utm.my/wp-content/uploads/2016/06/ramadhan.jpg" title="ramadhan"/></h1>
             <h1>A Warm Welcome!</h1>
             <p>Here is a centralized platform for the use of lecturers and students in managing courses, subjects and sections. </p>
         </header>
